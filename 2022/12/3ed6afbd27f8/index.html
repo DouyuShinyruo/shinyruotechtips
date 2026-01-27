@@ -16,21 +16,25 @@
   <meta name="author" content="DouyuShinyruo">
   <meta name="keywords" content="">
   
-    <meta name="description" content="This article offers a sample of basic Markdown syntax. TitlesAs we started writing a markdown document, we need to add a title and some sub-headers. Markdown supports two styles of headers, Setext and">
+    <meta name="description" content="1.Kubernetes与Docker的关系在第一次接触到K8s的时候，我以为这个技术和Docker有一定的关系，毕竟一个的logo是驮着集装箱的鲸鱼，而另一个是船的舵轮，都是在虚拟化技术的大海中乘波驶浪的实现方式。  不过在对K8s有更多的了解后，我认为这两者并不能放在一个维度上进行讨论，两者所面向和解决的问题并不相同。Docker是非常流行的Linux容器解决方案，这我们在之前的文章中已经有了">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Markdown Syntax Guide">
-<meta property="og:url" content="https://douyushinyruo.github.io/shinyruotechtips/2024/01/c5d07596ae69/index.html">
+<meta property="og:title" content="从Docker到OpenShift（二）">
+<meta property="og:url" content="https://douyushinyruo.github.io/shinyruotechtips/2022/12/3ed6afbd27f8/index.html">
 <meta property="og:site_name" content="每天学点新东西">
-<meta property="og:description" content="This article offers a sample of basic Markdown syntax. TitlesAs we started writing a markdown document, we need to add a title and some sub-headers. Markdown supports two styles of headers, Setext and">
+<meta property="og:description" content="1.Kubernetes与Docker的关系在第一次接触到K8s的时候，我以为这个技术和Docker有一定的关系，毕竟一个的logo是驮着集装箱的鲸鱼，而另一个是船的舵轮，都是在虚拟化技术的大海中乘波驶浪的实现方式。  不过在对K8s有更多的了解后，我认为这两者并不能放在一个维度上进行讨论，两者所面向和解决的问题并不相同。Docker是非常流行的Linux容器解决方案，这我们在之前的文章中已经有了">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-01-22T12:32:34.000Z">
-<meta property="article:modified_time" content="2024-01-24T08:06:44.000Z">
+<meta property="og:image" content="https://douyushinyruo.github.io/shinyruotechtips/imgs/%E4%BB%8EDocker%E5%88%B0OpenShift%EF%BC%88%E4%BA%8C%EF%BC%89/cac5432e5ba26a36ca6d41e9ad6f1ca8d0e0970c.png">
+<meta property="article:published_time" content="2022-12-19T14:23:44.000Z">
+<meta property="article:modified_time" content="2026-01-27T13:22:43.000Z">
 <meta property="article:author" content="DouyuShinyruo">
+<meta property="article:tag" content="Docker">
+<meta property="article:tag" content="Kubernetes">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://douyushinyruo.github.io/shinyruotechtips/imgs/%E4%BB%8EDocker%E5%88%B0OpenShift%EF%BC%88%E4%BA%8C%EF%BC%89/cac5432e5ba26a36ca6d41e9ad6f1ca8d0e0970c.png">
   
   
   
-  <title>Markdown Syntax Guide - 每天学点新东西</title>
+  <title>从Docker到OpenShift（二） - 每天学点新东西</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -196,7 +200,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Markdown Syntax Guide"></span>
+            <span id="subtitle" data-typed-text="从Docker到OpenShift（二）"></span>
           
         </div>
 
@@ -207,8 +211,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-01-22 20:32" pubdate>
-          2024年1月22日 晚上
+        <time datetime="2022-12-19 22:23" pubdate>
+          2022年12月19日 晚上
         </time>
       </span>
     
@@ -219,7 +223,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.6k 字
+          2.1k 字
         
       </span>
     
@@ -230,7 +234,7 @@
         
         
         
-          30 分钟
+          18 分钟
         
       </span>
     
@@ -272,12 +276,12 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Markdown Syntax Guide</h1>
+            <h1 style="display: none">从Docker到OpenShift（二）</h1>
             
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2024年1月24日 下午 04:06:44
+                    本文最后更新于：2026年1月27日 晚上 09:22:43
                   
                 
               </p>
@@ -285,85 +289,35 @@
             
               <div class="markdown-body">
                 
-                <p>This article offers a sample of basic Markdown syntax.</p>
-<h1 id="Titles"><a href="#Titles" class="headerlink" title="Titles"></a>Titles</h1><p>As we started writing a markdown document, we need to add a title and some sub-headers.</p>
-<p>Markdown supports two styles of headers, Setext and atx.</p>
-<p>Setext-style headers are “underlined” using equal signs (for first-level headers) and dashes (for second-level headers). For example:</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-section">This is an H1</span><br><span class="hljs-section">=============</span><br><br><span class="hljs-section">This is an H2</span><br><span class="hljs-section">-------------</span><br></code></pre></td></tr></table></figure>
-
-<p>Any number of underlining &#x3D;’s or -’s will work.</p>
-<p>Atx-style headers use 1-6 hash characters at the start of the line, corresponding to header levels 1-6. For example:</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># This is an H1</span><br><br><span class="hljs-section">## This is an H2</span><br><br><span class="hljs-section">###### This is an H6</span><br></code></pre></td></tr></table></figure>
-
-<p>Optionally, you may “close” atx-style headers. This is purely cosmetic — you can use this if you think it looks better. The closing hashes don’t even need to match the number of hashes used to open the header. (The number of opening hashes determines the header level.) :</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># This is an H1 #</span><br><br><span class="hljs-section">## This is an H2 ##</span><br><br><span class="hljs-section">### This is an H3 ######</span><br></code></pre></td></tr></table></figure>
-
-<h1 id="Tables"><a href="#Tables" class="headerlink" title="Tables"></a>Tables</h1><p>Tables aren’t part of the core Markdown spec, but they are part of GFM (GitHub Markdown) and Markdown Here supports them.</p>
-<p>Here is an example of table with the output below:</p>
-<figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs gherkin">|<span class="hljs-string"> Tables        </span>|<span class="hljs-string"> Are           </span>|<span class="hljs-string"> Cool  </span>|<br>|<span class="hljs-string"> ------------- </span>|<span class="hljs-string">:-------------:</span>|<span class="hljs-string"> -----:</span>|<br>|<span class="hljs-string"> col 3 is      </span>|<span class="hljs-string"> right-aligned </span>|<span class="hljs-string"> $1600 </span>|<br>|<span class="hljs-string"> col 2 is      </span>|<span class="hljs-string"> centered      </span>|<span class="hljs-string">   $12 </span>|<br>|<span class="hljs-string"> zebra stripes </span>|<span class="hljs-string"> are neat      </span>|<span class="hljs-string">    $1 </span>|<br></code></pre></td></tr></table></figure>
-
-<table>
-<thead>
-<tr>
-<th>Tables</th>
-<th align="center">Are</th>
-<th align="right">Cool</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>col 3 is</td>
-<td align="center">right-aligned</td>
-<td align="right">$1600</td>
-</tr>
-<tr>
-<td>col 2 is</td>
-<td align="center">centered</td>
-<td align="right">$12</td>
-</tr>
-<tr>
-<td>zebra stripes</td>
-<td align="center">are neat</td>
-<td align="right">$1</td>
-</tr>
-</tbody></table>
-<p>Colons can be used to align columns.</p>
-<p>The outer pipes (|) are optional, and you don’t need to make the raw Markdown line up prettily. You can also use inline Markdown.</p>
-<p>Example:</p>
-<figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs gherkin">Markdown |<span class="hljs-string"> Less </span>|<span class="hljs-string"> Pretty</span><br><span class="hljs-string">--- </span>|<span class="hljs-string"> --- </span>|<span class="hljs-string"> ---</span><br><span class="hljs-string">*Still* </span>|<span class="hljs-string"> `renders` </span>|<span class="hljs-string"> **nicely**</span><br><span class="hljs-string">1 </span>|<span class="hljs-string"> 2 </span>|<span class="hljs-string"> 3</span><br></code></pre></td></tr></table></figure>
-
-<h1 id="Links"><a href="#Links" class="headerlink" title="Links"></a>Links</h1><p>Markdown supports two styles of links: inline and reference.</p>
-<p>In both styles, the link text is delimited by [square brackets].</p>
-<p>To create an inline link, use a set of regular parentheses immediately after the link text’s closing square bracket. Inside the parentheses, put the URL where you want the link to point, along with an optional title for the link, surrounded in quotes. For example:</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs markdown">[<span class="hljs-string">I&#x27;m an inline-style link</span>](<span class="hljs-link">https://www.google.com</span>)<br><br>[<span class="hljs-string">I&#x27;m an inline-style link with title</span>](<span class="hljs-link">https://www.google.com &quot;Google&#x27;s Homepage&quot;</span>)<br><br>[<span class="hljs-string">I&#x27;m a reference-style link</span>][<span class="hljs-symbol">arbitrary case-insensitive reference text</span>]<br><br>[<span class="hljs-string">I&#x27;m a relative reference to a repository file</span>](<span class="hljs-link">../blob/master/LICENSE</span>)<br></code></pre></td></tr></table></figure>
-
-<p>Reference-style links use a second set of square brackets, inside which you place a label of your choosing to identify the link:</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs markdown">This is [<span class="hljs-string">an example</span>][<span class="hljs-symbol">id</span>] reference-style link.<br></code></pre></td></tr></table></figure>
-
-<p>You can optionally use a space to separate the sets of brackets:</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs markdown">This is [an example] [id] reference-style link.<br></code></pre></td></tr></table></figure>
-
-<p>Then, anywhere in the document, you define your link label like this, on a line by itself:</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs markdown">[<span class="hljs-symbol">id</span>]: <span class="hljs-link">http://example.com/ &quot;Optional Title Here&quot;</span><br></code></pre></td></tr></table></figure>
-
-<p><strong>GitHub</strong> and <strong>GitBook</strong> supports URL autolinking. They will autolink standard URLs, so if you want to link to a URL (instead of setting link text), you can simply enter the URL and it will be turned into a link to that URL.</p>
-<h1 id="Images"><a href="#Images" class="headerlink" title="Images"></a>Images</h1><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># Inline</span><br><br>![<span class="hljs-string">Alternative text</span>](<span class="hljs-link">/path/to/img.jpg &quot;Optional title&quot;</span>)<br><br><span class="hljs-section"># Reference</span><br><br>![<span class="hljs-string">Alternative text</span>][<span class="hljs-symbol">id</span>]<br>[<span class="hljs-symbol">id</span>]: <span class="hljs-link">url/to/image &quot;Optional title&quot;</span><br></code></pre></td></tr></table></figure>
-
-<p>As you may have noticed, images in Markdown are very similar to links. The difference is that:</p>
+                <h1 id="1-Kubernetes与Docker的关系"><a href="#1-Kubernetes与Docker的关系" class="headerlink" title="1.Kubernetes与Docker的关系"></a>1.Kubernetes与Docker的关系</h1><p>在第一次接触到K8s的时候，我以为这个技术和Docker有一定的关系，毕竟一个的logo是驮着集装箱的鲸鱼，而另一个是船的舵轮，都是在虚拟化技术的大海中乘波驶浪的实现方式。</p>
+<p><img src="/shinyruotechtips/imgs/%E4%BB%8EDocker%E5%88%B0OpenShift%EF%BC%88%E4%BA%8C%EF%BC%89/cac5432e5ba26a36ca6d41e9ad6f1ca8d0e0970c.png" srcset="/shinyruotechtips/img/loading.gif" lazyload></p>
+<p>不过在对K8s有更多的了解后，我认为这两者并不能放在一个维度上进行讨论，两者所面向和解决的问题并不相同。Docker是非常流行的Linux容器解决方案，这我们在之前的文章中已经有了一定的了解。而K8s是一个容器编排的解决方案，主要面向的是集群管理，K8s支持对接多种容器，Docker并不是K8s对容器的唯一选择，比如K8s还支持Apache开源的Mesos容器等等。只要容器实现了K8s容器运行时的接口约定，都可以被K8s调度。</p>
+<p>我认为某种意义上，是容器的大规模使用，引入了新的问题，从而催生了容器的编排技术，把许多Container抽象，对外部使用者来说，并不关心容器内部的应用是如何运行的，而是关注以下问题：</p>
 <ul>
-<li>the square brackets must be prefixed with an exclamation mark and</li>
-<li>inside they may have some alternative text. A description of the image, which is displayed if the image can’t be loaded.</li>
+<li><p>如何部署、调度、管理容器中的应用？</p>
+</li>
+<li><p>如何在升级程序的时候不中断对外的服务？</p>
+</li>
+<li><p>容器里的程序是否是正常运行的？</p>
+</li>
+<li><p>如何方便地根据业务去调整容器里的应用？</p>
+</li>
 </ul>
-<h1 id="Code-Blocks"><a href="#Code-Blocks" class="headerlink" title="Code Blocks"></a>Code Blocks</h1><p>Pre-formatted code blocks are used for writing about programming or markup source code. Rather than forming normal paragraphs, the lines of a code block are interpreted literally.</p>
-<p>Here is an example:</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs markdown">This is a code block<br></code></pre></td></tr></table></figure>
-
-<p>To produce a code block in Markdown, simply indent every line of the block by at least 4 spaces or 1 tab.</p>
-<p>For example:</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs markdown">This is a normal paragraph:<br><br><span class="hljs-code">    This is a code block.</span><br></code></pre></td></tr></table></figure>
-
-<p>You can also create code block separated by:</p>
-<pre><code class="hljs"><figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs clean"><br>### Inline <span class="hljs-keyword">code</span> blocks<br><br>Inline <span class="hljs-keyword">code</span> blocks can be written using: `<br><br>For example:<br><br>    This is a `<span class="hljs-keyword">inline</span> <span class="hljs-keyword">code</span> block`<br><br>### Syntax highlighting<br><br>You can define the language to be used for syntax highlighting by adding the name on the opening tag. Example:<br><br>    ```javascript<br>    var a = &#123;&#125;;<br></code></pre></td></tr></table></figure>
-</code></pre>
+<p>其实Docker的公司也推出过他们的容器集群管理方案Docker Swarm，某种意义上是K8s的竞品，但是在IT行业的生产中并没有流行起来，究其原因可能有以下几点：</p>
+<ul>
+<li><p>该方案和Docker绑定的程度太深，Docker本身是非常优秀的container方案，但是Swarm本身的功能非常有限，而且在刚推出的时候并不成熟</p>
+</li>
+<li><p>Google在推出K8s的时候，已经是一个比较成熟的方案了，并且归功于谷歌在大规模集群管理上的经验，谷歌给出的解决方案是非常高屋建瓴并且实用的</p>
+</li>
+<li><p>IT行业的规则是赢者通吃，使用的越为广泛的方案会有更加成熟的社区和公司去推动建设。</p>
+</li>
+</ul>
+<p>虽然K8s的配置更为复杂，但是它同时提供了更为灵活的部署方案，K8s的自动管理生命周期、自动恢复、模块化的架构设计，都是在生产中更具有实用价值的。如果我们想要学习K8s，实际上并不一定要会Docker。学 K8s 更多是让开发的服务能运行在 K8s 集群上，依托 K8s 集群管理、调度的能力让服务变得更具鲁棒性、更便于调整。对于Docker，需要有一个概念上的认知，如果有需要，再去学习就可以了。</p>
+<h1 id="2-K8s的起源"><a href="#2-K8s的起源" class="headerlink" title="2.K8s的起源"></a>2.K8s的起源</h1><p>众所周知，K8s起源于Google的开源，不过K8s的前身，在Google内部真正使用的系统叫做Borg。据说Google在Linux内核还没有CGroup和容器的情况下，造出了同样的东西。也有传言说Google将Brog中的一些边缘技术通过Golang来实现，变成了Kubernetes。当然，Google的说法是K8s吸取了Borg的优秀理念，Google的开源可谓是“纯粹的奉献”。像Google这样的IT行业领头公司，有许多开发的项目，当然也有很多因为各种原因不再继续进行维护的项目，<a target="_blank" rel="noopener" href="https://killedbygoogle.com/">Google Graveyard - Killed by Google</a>这个网站记录了Google曾经开发，现在已经是Dead Project的项目。有趣的是，该网站的作者曾经被Google聘请，不过作者本人拒绝了。不得不说，通过开源建立生态，培养用户，吸引企业用户上Google云去获得非阉割版本的性能是很高明的商业策略，这就是巨头的玩法。</p>
+<p>K8s提供了什么？我认为K8s最重要的一点是能够做到把容器部署为服务，这也是IT行业一直说的XaaS（ CaaS、laaS、PaaS）。K8s提供了Pod、Service等机制，帮助用户构建跨多个容器的应用服务、跨集群调度、扩展这些容器，并长期持续管理这些容器的运行健康状况；除此之外，它还可以根据用户设定的策略来自动管理用户的服务。</p>
+<p>如果作为服务的使用者来看，我们关心的是什么？我认为主要是服务的质量与可靠性，也就是说要保持服务的高可用性，这也是2B的IT服务提供商最需要做到的事情。假设有一个服务通过Pod1运行在机器1上，这时候K8s探测到机器1有问题或者处于离线状态，那么K8s就会把这个Pod在另一台机器2上重新拉起，并继续提供对应的服务，看起来这样的方案非常的合理。然而，请思考这样一个问题：我们如何确定机器1确实没有在工作了？在这里我想引入一个电脑领域的假想实验：<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E4%B8%A4%E5%86%9B%E9%97%AE%E9%A2%98">Two Generals’ Problem</a>，只有当收到回复并且再次对回复的内容做出回应之后，我们才认为信息是可靠的。然而对于机器1来说，信息显然已经不能再传递，我们应该如何保证机器1上的Pod1没有继续对数据进行修改呢？在分布式集群系统中这是一个非常常见的需要进行处理的问题，这就是“脑裂”（split-brain）现象。我们需要保证新的数据服务启动后，确保旧的服务不在能对数据进行处理或者访问修改，从而保证数据的完整性，这个机制叫Fencing。怎么去解决这个问题，我想IT行业应该已经有许多成熟的方案，而我并不了解，也不是在这里我想要去探讨的问题。</p>
+<p>提到K8s，不得不提的就是“云原生”这个概念。</p>
+<p>TBD</p>
 
                 
               </div>
@@ -373,6 +327,15 @@
               <div class="post-metas my-3">
   
   
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/shinyruotechtips/tags/Docker/">#Docker</a>
+      
+        <a href="/shinyruotechtips/tags/Kubernetes/">#Kubernetes</a>
+      
+    </div>
+  
 </div>
 
 
@@ -381,8 +344,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Markdown Syntax Guide</div>
-      <div>https://douyushinyruo.github.io/shinyruotechtips/2024/01/c5d07596ae69/</div>
+      <div>从Docker到OpenShift（二）</div>
+      <div>https://douyushinyruo.github.io/shinyruotechtips/2022/12/3ed6afbd27f8/</div>
     </div>
     <div class="license-meta">
       
@@ -394,7 +357,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年1月22日</div>
+          <div>2022年12月19日</div>
         </div>
       
       
@@ -426,9 +389,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/shinyruotechtips/2024/01/72ac063e860c/" title="北美科技公司对工程技术角色的区分">
+                      <a href="/shinyruotechtips/2022/12/1323966e29b7/" title="如何配置一个DNS服务？">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">北美科技公司对工程技术角色的区分</span>
+                        <span class="hidden-mobile">如何配置一个DNS服务？</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -436,8 +399,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/shinyruotechtips/2022/12/1323966e29b7/" title="如何配置一个DNS服务？">
-                        <span class="hidden-mobile">如何配置一个DNS服务？</span>
+                      <a href="/shinyruotechtips/2022/12/4757bbfdf288/" title="从Docker到OpenShift（一）">
+                        <span class="hidden-mobile">从Docker到OpenShift（一）</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -460,7 +423,7 @@
         var options = Object.assign(
           {"clientID":"7289cae2463ede906cd2","clientSecret":"84d68014e41df4e4404ac497ffe3d33cf37722fd","repo":"shinyruotechtips","owner":"DouyuShinyruo","admin":"DouyuShinyruo","language":"zh-CN || en","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
           {
-            id: '7c1b10bb41ee4e29dcf74ac9dc968ea2'
+            id: '03affd8e42103434e8c869cd5d4d88fc'
           }
         )
         var gitalk = new Gitalk(options);

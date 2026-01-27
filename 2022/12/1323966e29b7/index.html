@@ -16,21 +16,27 @@
   <meta name="author" content="DouyuShinyruo">
   <meta name="keywords" content="">
   
-    <meta name="description" content="This article offers a sample of basic Markdown syntax. TitlesAs we started writing a markdown document, we need to add a title and some sub-headers. Markdown supports two styles of headers, Setext and">
+    <meta name="description" content="今天在工作中遇到一个需要配置DNS Server的问题，记录一下。 引言在配置DNS Server之前，我们要先了解，什么是DNS？我第一次接触DNS是在我家跨上了“信息高速路”之后的一天，那时候我还是一个小学生，一个周末我快乐地打开电脑准备进入4399小游戏来一把的时候，却发现无法连上互联网。我感到非常的意外，因为就在那时我还可以使用QQ和朋友们愉快地聊天。但是当时的我并不知道这个问题是什么原因">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Markdown Syntax Guide">
-<meta property="og:url" content="https://douyushinyruo.github.io/shinyruotechtips/2024/01/c5d07596ae69/index.html">
+<meta property="og:title" content="如何配置一个DNS服务？">
+<meta property="og:url" content="https://douyushinyruo.github.io/shinyruotechtips/2022/12/1323966e29b7/index.html">
 <meta property="og:site_name" content="每天学点新东西">
-<meta property="og:description" content="This article offers a sample of basic Markdown syntax. TitlesAs we started writing a markdown document, we need to add a title and some sub-headers. Markdown supports two styles of headers, Setext and">
+<meta property="og:description" content="今天在工作中遇到一个需要配置DNS Server的问题，记录一下。 引言在配置DNS Server之前，我们要先了解，什么是DNS？我第一次接触DNS是在我家跨上了“信息高速路”之后的一天，那时候我还是一个小学生，一个周末我快乐地打开电脑准备进入4399小游戏来一把的时候，却发现无法连上互联网。我感到非常的意外，因为就在那时我还可以使用QQ和朋友们愉快地聊天。但是当时的我并不知道这个问题是什么原因">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-01-22T12:32:34.000Z">
-<meta property="article:modified_time" content="2024-01-24T08:06:44.000Z">
+<meta property="og:image" content="https://douyushinyruo.github.io/shinyruotechtips/imgs/%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AE%E4%B8%80%E4%B8%AADNS%E6%9C%8D%E5%8A%A1%EF%BC%9F/2022-12-20-21-32-00-image.png">
+<meta property="og:image" content="https://douyushinyruo.github.io/shinyruotechtips/2022/12/imgs/%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AE%E4%B8%80%E4%B8%AADNS%E6%9C%8D%E5%8A%A1%EF%BC%9F/2022-12-20-22-17-26-image.png">
+<meta property="og:image" content="https://douyushinyruo.github.io/shinyruotechtips/imgs/%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AE%E4%B8%80%E4%B8%AADNS%E6%9C%8D%E5%8A%A1%EF%BC%9F/2022-12-22-21-29-52-image.png">
+<meta property="og:image" content="https://douyushinyruo.github.io/shinyruotechtips/imgs/%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AE%E4%B8%80%E4%B8%AADNS%E6%9C%8D%E5%8A%A1%EF%BC%9F/2022-12-22-21-37-03-image.png">
+<meta property="article:published_time" content="2022-12-20T14:33:09.000Z">
+<meta property="article:modified_time" content="2026-01-27T13:22:43.000Z">
 <meta property="article:author" content="DouyuShinyruo">
+<meta property="article:tag" content="-DNS -网络技术">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://douyushinyruo.github.io/shinyruotechtips/imgs/%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AE%E4%B8%80%E4%B8%AADNS%E6%9C%8D%E5%8A%A1%EF%BC%9F/2022-12-20-21-32-00-image.png">
   
   
   
-  <title>Markdown Syntax Guide - 每天学点新东西</title>
+  <title>如何配置一个DNS服务？ - 每天学点新东西</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -196,7 +202,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Markdown Syntax Guide"></span>
+            <span id="subtitle" data-typed-text="如何配置一个DNS服务？"></span>
           
         </div>
 
@@ -207,8 +213,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-01-22 20:32" pubdate>
-          2024年1月22日 晚上
+        <time datetime="2022-12-20 22:33" pubdate>
+          2022年12月20日 晚上
         </time>
       </span>
     
@@ -219,7 +225,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.6k 字
+          3.3k 字
         
       </span>
     
@@ -230,7 +236,7 @@
         
         
         
-          30 分钟
+          28 分钟
         
       </span>
     
@@ -272,12 +278,12 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Markdown Syntax Guide</h1>
+            <h1 style="display: none">如何配置一个DNS服务？</h1>
             
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2024年1月24日 下午 04:06:44
+                    本文最后更新于：2026年1月27日 晚上 09:22:43
                   
                 
               </p>
@@ -285,85 +291,75 @@
             
               <div class="markdown-body">
                 
-                <p>This article offers a sample of basic Markdown syntax.</p>
-<h1 id="Titles"><a href="#Titles" class="headerlink" title="Titles"></a>Titles</h1><p>As we started writing a markdown document, we need to add a title and some sub-headers.</p>
-<p>Markdown supports two styles of headers, Setext and atx.</p>
-<p>Setext-style headers are “underlined” using equal signs (for first-level headers) and dashes (for second-level headers). For example:</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-section">This is an H1</span><br><span class="hljs-section">=============</span><br><br><span class="hljs-section">This is an H2</span><br><span class="hljs-section">-------------</span><br></code></pre></td></tr></table></figure>
+                <p>今天在工作中遇到一个需要配置DNS Server的问题，记录一下。</p>
+<h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>在配置DNS Server之前，我们要先了解，什么是DNS？我第一次接触DNS是在我家跨上了“信息高速路”之后的一天，那时候我还是一个小学生，一个周末我快乐地打开电脑准备进入4399小游戏来一把的时候，却发现无法连上互联网。我感到非常的意外，因为就在那时我还可以使用QQ和朋友们愉快地聊天。但是当时的我并不知道这个问题是什么原因，也并不会修复，后来还是给运营商的维修师傅打电话才把这个问题修复好了。直到后来我才知道是因为DNS出了问题，而QQ是直接使用IP地址来连接服务器，所以即使DNS失效，QQ也可以正常使用。</p>
+<p>如果根据DNS的作用来说，DNS就是一个电话簿，在这个电话簿上记录了访问的网址对应的IP地址。对于DNS的产生和历史，此处不再赘述，我们只需要知道DNS协议运行在UDP协议上，使用端口号53。</p>
+<h1 id="DNS是怎么工作的？"><a href="#DNS是怎么工作的？" class="headerlink" title="DNS是怎么工作的？"></a>DNS是怎么工作的？</h1><p>DNS系统采用的是分布式的解析方案，整个DNS架构是一种层次树状结构，这个树状结构称为DNS域名空间，如下图所示：</p>
+<p><img src="/shinyruotechtips/imgs/%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AE%E4%B8%80%E4%B8%AADNS%E6%9C%8D%E5%8A%A1%EF%BC%9F/2022-12-20-21-32-00-image.png" srcset="/shinyruotechtips/img/loading.gif" lazyload></p>
+<p><a target="_blank" rel="noopener" href="https://root-servers.org/">Root Server Technical Operations Association (root-servers.org)</a>如果有兴趣的话，在这个网站上可以查看所有根域服务器。</p>
+<p>主机名和域名结合构成了FQDN<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Fully_qualified_domain_name">Fully qualified domain name - Wikipedia</a>，比如<a target="_blank" rel="noopener" href="http://www.bing.com.就是一个fqdn./">www.bing.com.就是一个FQDN。</a></p>
+<blockquote>
+<p>注1：FQDN只能包含26个英文字母、“0-9”十个数字和“-”英文中的连接号，且开头和结尾不能含有这个连接号。中文域名包含两到十五个汉字之间的字词或词组。域名中不能包含空格及符号如？&#x2F;；：@#$%^~_&#x3D;+&amp;。等。</p>
+</blockquote>
+<blockquote>
+<p>注2: 每个域名的最后面有一个点号“.”表示根域名，实际使用的时候为了方便省略掉。</p>
+</blockquote>
+<h1 id="DNS域名解析过程"><a href="#DNS域名解析过程" class="headerlink" title="DNS域名解析过程"></a>DNS域名解析过程</h1><p>整个DNS的域名解析过程是什么样的呢？</p>
+<h5 id="1-本地缓存"><a href="#1-本地缓存" class="headerlink" title="1.本地缓存"></a>1.本地缓存</h5><p>当我们在浏览器中输入一个域名的时候，首先会去浏览器的 dns 缓存中去查询是否有对应记录。如果查询到记录就可以直接返回 ip 地址，完成解析。同上，如果浏览器没有对应的缓存，就去查询操作系统的缓存。</p>
+<h5 id="2-hosts"><a href="#2-hosts" class="headerlink" title="2.hosts"></a>2.hosts</h5><p>当缓存中没有记录的时候，去检查本地的hosts(C:\Windows\System32\drivers\etc\hosts)文件是否有这个网址的映射关系.</p>
+<h5 id="3-本地DNS服务器"><a href="#3-本地DNS服务器" class="headerlink" title="3.本地DNS服务器"></a>3.本地DNS服务器</h5><p>一般来说，本地DNS一般本地的互联网运营商提供，由DHCP自动分配，当然也可以由使用者手动配置。</p>
+<img src="../imgs/如何配置一个DNS服务？/2022-12-20-22-17-26-image.png" srcset="/shinyruotechtips/img/loading.gif" lazyload title="" alt="" width="383">
 
-<p>Any number of underlining &#x3D;’s or -’s will work.</p>
-<p>Atx-style headers use 1-6 hash characters at the start of the line, corresponding to header levels 1-6. For example:</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># This is an H1</span><br><br><span class="hljs-section">## This is an H2</span><br><br><span class="hljs-section">###### This is an H6</span><br></code></pre></td></tr></table></figure>
-
-<p>Optionally, you may “close” atx-style headers. This is purely cosmetic — you can use this if you think it looks better. The closing hashes don’t even need to match the number of hashes used to open the header. (The number of opening hashes determines the header level.) :</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># This is an H1 #</span><br><br><span class="hljs-section">## This is an H2 ##</span><br><br><span class="hljs-section">### This is an H3 ######</span><br></code></pre></td></tr></table></figure>
-
-<h1 id="Tables"><a href="#Tables" class="headerlink" title="Tables"></a>Tables</h1><p>Tables aren’t part of the core Markdown spec, but they are part of GFM (GitHub Markdown) and Markdown Here supports them.</p>
-<p>Here is an example of table with the output below:</p>
-<figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs gherkin">|<span class="hljs-string"> Tables        </span>|<span class="hljs-string"> Are           </span>|<span class="hljs-string"> Cool  </span>|<br>|<span class="hljs-string"> ------------- </span>|<span class="hljs-string">:-------------:</span>|<span class="hljs-string"> -----:</span>|<br>|<span class="hljs-string"> col 3 is      </span>|<span class="hljs-string"> right-aligned </span>|<span class="hljs-string"> $1600 </span>|<br>|<span class="hljs-string"> col 2 is      </span>|<span class="hljs-string"> centered      </span>|<span class="hljs-string">   $12 </span>|<br>|<span class="hljs-string"> zebra stripes </span>|<span class="hljs-string"> are neat      </span>|<span class="hljs-string">    $1 </span>|<br></code></pre></td></tr></table></figure>
-
-<table>
-<thead>
-<tr>
-<th>Tables</th>
-<th align="center">Are</th>
-<th align="right">Cool</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>col 3 is</td>
-<td align="center">right-aligned</td>
-<td align="right">$1600</td>
-</tr>
-<tr>
-<td>col 2 is</td>
-<td align="center">centered</td>
-<td align="right">$12</td>
-</tr>
-<tr>
-<td>zebra stripes</td>
-<td align="center">are neat</td>
-<td align="right">$1</td>
-</tr>
-</tbody></table>
-<p>Colons can be used to align columns.</p>
-<p>The outer pipes (|) are optional, and you don’t need to make the raw Markdown line up prettily. You can also use inline Markdown.</p>
-<p>Example:</p>
-<figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs gherkin">Markdown |<span class="hljs-string"> Less </span>|<span class="hljs-string"> Pretty</span><br><span class="hljs-string">--- </span>|<span class="hljs-string"> --- </span>|<span class="hljs-string"> ---</span><br><span class="hljs-string">*Still* </span>|<span class="hljs-string"> `renders` </span>|<span class="hljs-string"> **nicely**</span><br><span class="hljs-string">1 </span>|<span class="hljs-string"> 2 </span>|<span class="hljs-string"> 3</span><br></code></pre></td></tr></table></figure>
-
-<h1 id="Links"><a href="#Links" class="headerlink" title="Links"></a>Links</h1><p>Markdown supports two styles of links: inline and reference.</p>
-<p>In both styles, the link text is delimited by [square brackets].</p>
-<p>To create an inline link, use a set of regular parentheses immediately after the link text’s closing square bracket. Inside the parentheses, put the URL where you want the link to point, along with an optional title for the link, surrounded in quotes. For example:</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs markdown">[<span class="hljs-string">I&#x27;m an inline-style link</span>](<span class="hljs-link">https://www.google.com</span>)<br><br>[<span class="hljs-string">I&#x27;m an inline-style link with title</span>](<span class="hljs-link">https://www.google.com &quot;Google&#x27;s Homepage&quot;</span>)<br><br>[<span class="hljs-string">I&#x27;m a reference-style link</span>][<span class="hljs-symbol">arbitrary case-insensitive reference text</span>]<br><br>[<span class="hljs-string">I&#x27;m a relative reference to a repository file</span>](<span class="hljs-link">../blob/master/LICENSE</span>)<br></code></pre></td></tr></table></figure>
-
-<p>Reference-style links use a second set of square brackets, inside which you place a label of your choosing to identify the link:</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs markdown">This is [<span class="hljs-string">an example</span>][<span class="hljs-symbol">id</span>] reference-style link.<br></code></pre></td></tr></table></figure>
-
-<p>You can optionally use a space to separate the sets of brackets:</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs markdown">This is [an example] [id] reference-style link.<br></code></pre></td></tr></table></figure>
-
-<p>Then, anywhere in the document, you define your link label like this, on a line by itself:</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs markdown">[<span class="hljs-symbol">id</span>]: <span class="hljs-link">http://example.com/ &quot;Optional Title Here&quot;</span><br></code></pre></td></tr></table></figure>
-
-<p><strong>GitHub</strong> and <strong>GitBook</strong> supports URL autolinking. They will autolink standard URLs, so if you want to link to a URL (instead of setting link text), you can simply enter the URL and it will be turned into a link to that URL.</p>
-<h1 id="Images"><a href="#Images" class="headerlink" title="Images"></a>Images</h1><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># Inline</span><br><br>![<span class="hljs-string">Alternative text</span>](<span class="hljs-link">/path/to/img.jpg &quot;Optional title&quot;</span>)<br><br><span class="hljs-section"># Reference</span><br><br>![<span class="hljs-string">Alternative text</span>][<span class="hljs-symbol">id</span>]<br>[<span class="hljs-symbol">id</span>]: <span class="hljs-link">url/to/image &quot;Optional title&quot;</span><br></code></pre></td></tr></table></figure>
-
-<p>As you may have noticed, images in Markdown are very similar to links. The difference is that:</p>
+<p>当hosts没有对应映射时，查找本地DNS服务器缓存。如果该服务器已缓存了此网址映射关系，则调用这个IP地址映射，完成域名解析，此解析不具有权威性。如果要查询的域名，包含在本地配置区域资源中，则返回解析结果给客户机，完成域名解析，此解析具有权威性。</p>
+<h5 id="4-根域名-x2F-上级服务器"><a href="#4-根域名-x2F-上级服务器" class="headerlink" title="4.根域名&#x2F;上级服务器"></a>4.根域名&#x2F;上级服务器</h5><p>这里根据本地DNS服务器是否设置了转发器，有两种情况。</p>
+<p><strong>未启用转发模式：</strong> 本地DNS把请求发至13台根DNS，根DNS服务器收到请求后会判断这个域名(.com)是谁来授权管理，并会返回一个负责该顶级域名服务器的一个IP。本地DNS服务器收到IP信息后，将会联系负责.com域的这台服务器。这台负责.com域的服务器收到请求后，如果自己无法解析，它就会找一个管理.com域的下一级DNS服务器地址(baidu.com)给本地DNS服务器，直到找到主机。</p>
+<p><strong>启用转发模式：</strong> 此DNS服务器就会把请求转发至上一级DNS服务器，由上一级服务器进行解析，上一级服务器如果不能解析，或找根DNS或把转请求转至上上级，以此循环。不管是本地DNS服务器用是是转发，还是根提示，最后都是把结果返回给本地DNS服务器，由此DNS服务器再返回给客户机。</p>
+<p>这就是DNS系统的作用：</p>
+<p>    正向解析：根据主机名称（域名）查找对应的IP地址</p>
+<p>    反向解析：根据IP地址查找对应的主机域名</p>
+<p>如果想要更深入地理解DNS的工作原理，我们可以用Wireshark抓一个DNS请求包，并对它的内容进行分析。</p>
+<p>以对<a href="http://www.biying.com的访问作为例子：">www.biying.com的访问作为例子：</a></p>
+<p><img src="/shinyruotechtips/imgs/%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AE%E4%B8%80%E4%B8%AADNS%E6%9C%8D%E5%8A%A1%EF%BC%9F/2022-12-22-21-29-52-image.png" srcset="/shinyruotechtips/img/loading.gif" lazyload></p>
+<p>可以看到，访问<a target="_blank" rel="noopener" href="http://www.biying.com总共产生了四条数据,两次dns请求,第一次查询www.biying.com域名对应的ipv4地址,第二次查询www.biying.com域名对应的ipv6地址./">www.biying.com总共产生了四条数据，两次DNS请求，第一次查询www.biying.com域名对应的IPv4地址，第二次查询www.biying.com域名对应的IPv6地址。</a></p>
+<p><img src="/shinyruotechtips/imgs/%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AE%E4%B8%80%E4%B8%AADNS%E6%9C%8D%E5%8A%A1%EF%BC%9F/2022-12-22-21-37-03-image.png" srcset="/shinyruotechtips/img/loading.gif" lazyload></p>
+<p><strong>报文分析</strong>：</p>
+<p>可以看到，网络传输层使用 UDP 协议，端口号为 53</p>
+<h4 id="DNS报文基础结构部分"><a href="#DNS报文基础结构部分" class="headerlink" title="DNS报文基础结构部分"></a><strong>DNS报文基础结构部分</strong></h4><p>每个字段含义如下。</p>
 <ul>
-<li>the square brackets must be prefixed with an exclamation mark and</li>
-<li>inside they may have some alternative text. A description of the image, which is displayed if the image can’t be loaded.</li>
+<li>事务 ID（Transaction ID）：DNS 报文的 ID 标识。对于请求报文和其对应的应答报文，该字段的值是相同的。通过它可以区分 DNS 应答报文是对哪个请求进行响应的。</li>
+<li>标志（Flags）：DNS 报文中的标志字段。</li>
+<li>问题计数（Questions）：DNS 查询请求的数目。</li>
+<li>回答资源记录数（Answers RRs）：DNS 响应的数目。</li>
+<li>权威名称服务器计数（Authority RRs）：权威名称服务器的数目。</li>
+<li>附加资源记录数（Additional RRs）：额外的记录数目（权威名称服务器对应 IP 地址的数目）。</li>
 </ul>
-<h1 id="Code-Blocks"><a href="#Code-Blocks" class="headerlink" title="Code Blocks"></a>Code Blocks</h1><p>Pre-formatted code blocks are used for writing about programming or markup source code. Rather than forming normal paragraphs, the lines of a code block are interpreted literally.</p>
-<p>Here is an example:</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs markdown">This is a code block<br></code></pre></td></tr></table></figure>
-
-<p>To produce a code block in Markdown, simply indent every line of the block by at least 4 spaces or 1 tab.</p>
-<p>For example:</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs markdown">This is a normal paragraph:<br><br><span class="hljs-code">    This is a code block.</span><br></code></pre></td></tr></table></figure>
-
-<p>You can also create code block separated by:</p>
-<pre><code class="hljs"><figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs clean"><br>### Inline <span class="hljs-keyword">code</span> blocks<br><br>Inline <span class="hljs-keyword">code</span> blocks can be written using: `<br><br>For example:<br><br>    This is a `<span class="hljs-keyword">inline</span> <span class="hljs-keyword">code</span> block`<br><br>### Syntax highlighting<br><br>You can define the language to be used for syntax highlighting by adding the name on the opening tag. Example:<br><br>    ```javascript<br>    var a = &#123;&#125;;<br></code></pre></td></tr></table></figure>
-</code></pre>
+<p>   其中Flags字段中每个字段的含义如下：</p>
+<ul>
+<li>QR（Response）：查询请求&#x2F;响应的标志信息。查询请求时，值为 0；响应时，值为 1。</li>
+<li>Opcode：操作码。其中，0 表示标准查询；1 表示反向查询；2 表示服务器状态请求。</li>
+<li>AA（Authoritative）：授权应答，该字段在响应报文中有效。值为 1 时，表示名称服务器是权威服务器；值为 0 时，表示不是权威服务器。</li>
+<li>TC（Truncated）：表示是否被截断。值为 1 时，表示响应已超过 512 字节并已被截断，只返回前 512 个字节。</li>
+<li>RD（Recursion Desired）：期望递归。该字段能在一个查询中设置，并在响应中返回。该标志告诉名称服务器必须处理这个查询，这种方式被称为一个递归查询。如果该位为 0，且被请求的名称服务器没有一个授权回答，它将返回一个能解答该查询的其他名称服务器列表。这种方式被称为迭代查询。</li>
+<li>RA（Recursion Available）：可用递归。该字段只出现在响应报文中。当值为 1 时，表示服务器支持递归查询。</li>
+<li>Z：保留字段，在所有的请求和应答报文中，它的值必须为 0。</li>
+<li>rcode（Reply code）：返回码字段，表示响应的差错状态。<ul>
+<li>当值为 0 时，表示没有错误；</li>
+<li>当值为 1 时，表示报文格式错误（Format error），服务器不能理解请求的报文；</li>
+<li>当值为 2 时，表示域名服务器失败（Server failure），因为服务器的原因导致没办法处理这个请求；</li>
+<li>当值为 3 时，表示名字错误（Name Error），只有对授权域名解析服务器有意义，指出解析的域名不存在；</li>
+<li>当值为 4 时，表示查询类型不支持（Not Implemented），即域名服务器不支持查询类型；</li>
+<li>当值为 5 时，表示拒绝（Refused），一般是服务器由于设置的策略拒绝给出应答，如服务器不希望对某些请求者给出应答，，或者服务器不希望进行某些操作（比如区域传送zone transfer）；</li>
+<li>6-15 保留值，暂时未使用。</li>
+</ul>
+</li>
+</ul>
+<p><strong>DNS报文问题查询部分</strong><br>每个字段含义如下：</p>
+<ul>
+<li>查询名（Name）：一般为要查询的域名胡总和邮件服务器，有时也会是 IP 地址，用于反向查询。</li>
+<li>查询类型（Type）：DNS 查询请求的资源类型。通常查询类型为 A （Address的缩写）类型，表示由域名获取对应的 IP4 地址。（更多类型如 AAAA，CANME，SOA，PTR，NS 等）</li>
+<li>查询类（Class）：地址类型，在设计DNS方案的时候，DNS在除了互联网之外的其他网络中的情况也被考虑到了，所以Class用来识别网络类型，不过，如今除了互联网没有其他的网络了，所以该值为IN。<br>那么，对于上面报文内容，翻译过后的意思就是，“该报文为标准查询(Opcode&#x3D;0)请求(QR&#x3D;1)报文，向本地域名服务器请求查询，发起请求内容为’获取<a target="_blank" rel="noopener" href="http://www.biying.com'所对应的ipv4地址,期待本地域名服务器递归查询(rd=1)请求./">www.biying.com&#39;所对应的IPv4地址，期待本地域名服务器递归查询(RD=1)请求。</a></li>
+</ul>
+<p><strong>TODO</strong> 配置DNS服务的实例</p>
 
                 
               </div>
@@ -373,6 +369,13 @@
               <div class="post-metas my-3">
   
   
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/shinyruotechtips/tags/DNS-%E7%BD%91%E7%BB%9C%E6%8A%80%E6%9C%AF/">#-DNS -网络技术</a>
+      
+    </div>
+  
 </div>
 
 
@@ -381,8 +384,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Markdown Syntax Guide</div>
-      <div>https://douyushinyruo.github.io/shinyruotechtips/2024/01/c5d07596ae69/</div>
+      <div>如何配置一个DNS服务？</div>
+      <div>https://douyushinyruo.github.io/shinyruotechtips/2022/12/1323966e29b7/</div>
     </div>
     <div class="license-meta">
       
@@ -394,7 +397,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年1月22日</div>
+          <div>2022年12月20日</div>
         </div>
       
       
@@ -426,9 +429,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/shinyruotechtips/2024/01/72ac063e860c/" title="北美科技公司对工程技术角色的区分">
+                      <a href="/shinyruotechtips/2024/01/c5d07596ae69/" title="Markdown Syntax Guide">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">北美科技公司对工程技术角色的区分</span>
+                        <span class="hidden-mobile">Markdown Syntax Guide</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -436,8 +439,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/shinyruotechtips/2022/12/1323966e29b7/" title="如何配置一个DNS服务？">
-                        <span class="hidden-mobile">如何配置一个DNS服务？</span>
+                      <a href="/shinyruotechtips/2022/12/3ed6afbd27f8/" title="从Docker到OpenShift（二）">
+                        <span class="hidden-mobile">从Docker到OpenShift（二）</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -460,7 +463,7 @@
         var options = Object.assign(
           {"clientID":"7289cae2463ede906cd2","clientSecret":"84d68014e41df4e4404ac497ffe3d33cf37722fd","repo":"shinyruotechtips","owner":"DouyuShinyruo","admin":"DouyuShinyruo","language":"zh-CN || en","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
           {
-            id: '7c1b10bb41ee4e29dcf74ac9dc968ea2'
+            id: '93ff8529d0dc28c998036907bc0d6278'
           }
         )
         var gitalk = new Gitalk(options);
