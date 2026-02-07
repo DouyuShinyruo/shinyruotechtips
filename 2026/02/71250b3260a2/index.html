@@ -1,0 +1,802 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/shinyruotechtips/img/favico.png">
+  <link rel="icon" href="/shinyruotechtips/img/favico.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="DouyuShinyruo">
+  <meta name="keywords" content="测试框架,容器技术,Docker,Kubernetes,pytest,Cucumber,开发工具,AI开发,技术博客,职场发展">
+  
+    <meta name="description" content="Claude Code 使用深度实践指南本文翻译自 Shrivu Shankar 的文章 How I Use Every Claude Code Feature，发布于 2025 年 11 月 2 日。这篇文章是最近我在使用Claude Code进行vibe coding的时候遇到的一些问题在寻找答案的时候发现的，对于一些相应的场景，比如为什么要避免 &#x2F;compact，为什么自定义子智能">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Claude Code 使用深度实践指南">
+<meta property="og:url" content="https://douyushinyruo.github.io/shinyruotechtips/2026/02/71250b3260a2/index.html">
+<meta property="og:site_name" content="Shinyruo的技术笔记">
+<meta property="og:description" content="Claude Code 使用深度实践指南本文翻译自 Shrivu Shankar 的文章 How I Use Every Claude Code Feature，发布于 2025 年 11 月 2 日。这篇文章是最近我在使用Claude Code进行vibe coding的时候遇到的一些问题在寻找答案的时候发现的，对于一些相应的场景，比如为什么要避免 &#x2F;compact，为什么自定义子智能">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://douyushinyruo.github.io/shinyruotechtips/imgs/%E6%88%91%E7%9A%84%20Claude%20Code%20%E5%AE%9E%E6%88%98%E7%BB%8F%E9%AA%8C%EF%BC%9A%E6%B7%B1%E5%BA%A6%E4%BD%BF%E7%94%A8%E6%AF%8F%E4%B8%AA%E5%8A%9F%E8%83%BD/2026-02-07-15-39-47-image.png">
+<meta property="article:published_time" content="2026-02-07T08:00:00.000Z">
+<meta property="article:modified_time" content="2026-02-07T08:00:00.000Z">
+<meta property="article:author" content="DouyuShinyruo">
+<meta property="article:tag" content="Vide Coding">
+<meta property="article:tag" content="AI Agent">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://douyushinyruo.github.io/shinyruotechtips/imgs/%E6%88%91%E7%9A%84%20Claude%20Code%20%E5%AE%9E%E6%88%98%E7%BB%8F%E9%AA%8C%EF%BC%9A%E6%B7%B1%E5%BA%A6%E4%BD%BF%E7%94%A8%E6%AF%8F%E4%B8%AA%E5%8A%9F%E8%83%BD/2026-02-07-15-39-47-image.png">
+  
+  
+  
+  <title>Claude Code 使用深度实践指南 - Shinyruo的技术笔记</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/shinyruotechtips/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/shinyruotechtips/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/shinyruotechtips/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"douyushinyruo.github.io","root":"/shinyruotechtips/","version":"1.9.4","typing":{"enable":true,"typeSpeed":20,"cursorChar":"|","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/shinyruotechtips/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/shinyruotechtips/js/utils.js" ></script>
+  <script  src="/shinyruotechtips/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 35vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/shinyruotechtips/">
+      <strong>Shinyruo的技术笔记</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/shinyruotechtips/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/shinyruotechtips/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/shinyruotechtips/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/shinyruotechtips/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/shinyruotechtips/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" target="_blank" rel="noopener" href="https://github.com/DouyuShinyruo">
+                <i class="iconfont icon-github-fill"></i>
+                <span>GitHub</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/shinyruotechtips/img/default1.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.8)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Claude Code 使用深度实践指南"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-02-07 16:00" pubdate>
+          2026年2月7日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          7.8k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          65 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Claude Code 使用深度实践指南</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="Claude-Code-使用深度实践指南"><a href="#Claude-Code-使用深度实践指南" class="headerlink" title="Claude Code 使用深度实践指南"></a>Claude Code 使用深度实践指南</h1><p>本文翻译自 Shrivu Shankar 的文章 <a target="_blank" rel="noopener" href="https://blog.sshh.io/p/how-i-use-every-claude-code-feature">How I Use Every Claude Code Feature</a>，发布于 2025 年 11 月 2 日。这篇文章是最近我在使用Claude Code进行vibe coding的时候遇到的一些问题在寻找答案的时候发现的，对于一些相应的场景，比如为什么要避免 &#x2F;compact，为什么自定义子智能体反而会带来问题，Skills 和 MCP 的真正定位是什么，文章做出了解释，分享了一些反直觉但是有效的方法。以下为原文。</p>
+<p>我重度使用 Claude Code。</p>
+<p>作为业余爱好者，我每周会在虚拟机（VM）中多次运行它来处理个人项目，通常会加上 <code>--dangerously-skip-permissions</code> 参数，以便快速实现脑中闪现的任何编码想法。在职业场景中，我所在团队的一部分成员负责构建面向全公司工程师的 AI-IDE（人工智能集成开发环境）规则与工具链，仅代码生成（codegen）一项每月就消耗数十亿 tokens。</p>
+<p>CLI（命令行界面）代理工具领域正变得愈发拥挤。在 Claude Code、Gemini CLI、Cursor 和 Codex CLI 之间，感觉真正的竞争其实发生在 Anthropic 与 OpenAI 之间。但坦白说，当我与其他开发者交流时，他们的选择往往取决于一些看似表面的因素——某个“幸运”的功能实现，或是他们更偏好的系统提示词（system prompt）“氛围感”。到这个阶段，这些工具其实都相当好用了。我也感觉到，人们常常过度关注输出风格或用户界面。对我而言，“你完全正确！”这类谄媚式回应并非显著缺陷；它反而是一个信号，表明你过度介入了代理的工作流程。我的目标通常是“发射后不管”（shoot and forget）——委派任务、设定上下文，然后让它自主工作。评判工具的标准应是最终的 PR（Pull Request，拉取请求）质量，而非其实现路径。</p>
+<p>在坚持使用 Claude Code 数月后，本文将分享我对 Claude Code 整个生态系统的思考。我们将覆盖我使用的几乎所有功能（以及同等重要的、我不使用的功能），从基础的 <code>CLAUDE.md</code> 配置文件、自定义斜杠命令（slash commands），到强大的子代理（Subagents）、钩子（Hooks）和 GitHub Actions 集成。本文篇幅较长，更适合作为参考文档而非一次性通读。</p>
+<h2 id="CLAUDE-md"><a href="#CLAUDE-md" class="headerlink" title="CLAUDE.md"></a>CLAUDE.md</h2><p>在代码库中有效使用 Claude Code 时，最重要的单一文件是根目录下的 <code>CLAUDE.md</code>。该文件是代理的“宪法”，是其理解特定代码库工作方式的主要事实来源。</p>
+<p>如何对待该文件取决于使用场景。对于个人项目，我允许 Claude 随意向其中写入内容。</p>
+<p>对于职业工作，我们单体仓库（monorepo）的 <code>CLAUDE.md</code> 经过严格维护，当前大小为 13KB（我预计它很容易增长到 25KB）：</p>
+<ul>
+<li>仅记录被 30%（任意设定）及以上工程师使用的工具和 API（其他工具的文档放在产品或库专属的 Markdown 文件中）</li>
+<li>我们甚至开始为每个内部工具的文档分配最大 token 数量，近乎于向团队“出售广告位”。如果你无法简洁地解释自己的工具，说明它尚未准备好进入 <code>CLAUDE.md</code>。</li>
+</ul>
+<h3 id="实践技巧与常见反模式"><a href="#实践技巧与常见反模式" class="headerlink" title="实践技巧与常见反模式"></a>实践技巧与常见反模式</h3><p>经过实践，我们形成了编写高效 <code>CLAUDE.md</code> 的强观点哲学：</p>
+<p><strong>从护栏（Guardrails）开始，而非手册</strong><br><code>CLAUDE.md</code> 应从精简起步，仅记录 Claude 经常出错的地方。</p>
+<p><strong>避免 @-文件引用</strong><br>如果其他地方已有详尽文档，很容易在 <code>CLAUDE.md</code> 中通过 @ 提及这些文件。但这会在每次运行时嵌入整个文件，导致上下文窗口膨胀。而如果仅提及路径，Claude 往往会忽略它。你必须向代理说明何时以及为何需要阅读该文件。例如：“对于复杂……用法或遇到 FooBarError 时，请参阅 path&#x2F;to&#x2F;docs.md 获取高级故障排查步骤。”</p>
+<p><strong>避免仅使用“禁止”类约束</strong><br>避免纯否定性约束，如“Never use the –foo-bar flag”。当代理认为必须使用该标志时会陷入僵局。务必提供替代方案。</p>
+<p><strong>将 CLAUDE.md 作为强制简化机制</strong><br>如果 CLI 命令复杂冗长，不要编写大段文档解释它们——这是在修补人类的问题。相反，编写具有清晰直观 API 的简单 bash 包装器并记录该包装器。尽可能保持 <code>CLAUDE.md</code> 简短，是简化代码库和内部工具链的绝佳强制机制。</p>
+<p>以下是一个简化示例：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># Monorepo</span><br><br><span class="hljs-section">## Python</span><br><span class="hljs-bullet">-</span> Always ...<br><span class="hljs-bullet">-</span> Test with <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">command</span>&gt;</span></span><br>... 10 more ...<br><br><span class="hljs-section">## <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">Internal</span> <span class="hljs-attr">CLI</span> <span class="hljs-attr">Tool</span>&gt;</span></span></span><br>... 10 bullets, focused on the 80% of use cases ...<br><span class="hljs-bullet">-</span> <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">usage</span> <span class="hljs-attr">example</span>&gt;</span></span><br><span class="hljs-bullet">-</span> Always ...<br><span class="hljs-bullet">-</span> Never <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">x</span>&gt;</span></span>, prefer <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">Y</span>&gt;</span></span><br><br>For <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">complex</span> <span class="hljs-attr">usage</span>&gt;</span></span> or <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">error</span>&gt;</span></span> see path/to/<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">tool</span>&gt;</span></span><span class="hljs-emphasis">_docs.md</span><br><span class="hljs-emphasis"></span><br><span class="hljs-emphasis">...</span><br></code></pre></td></tr></table></figure>
+
+<p>最后，我们保持该文件与 <code>AGENTS.md</code> 同步，以维持与其他工程师可能使用的 AI IDE 的兼容性。</p>
+<p>如需更多面向编码代理的 Markdown 编写技巧，参见《AI Can’t Read Your Docs》《AI-powered Software Engineering》和《How Cursor (AI IDE) Works》。</p>
+<p><strong>核心要点</strong>：将 <code>CLAUDE.md</code> 视为高层次、精心策划的护栏与指引集合。用它来指导你应在何处投入资源构建更友好的 AI（及人类）工具，而非试图使其成为全面手册。</p>
+<h2 id="紧凑化、上下文与清晰度"><a href="#紧凑化、上下文与清晰度" class="headerlink" title="紧凑化、上下文与清晰度"></a>紧凑化、上下文与清晰度</h2><p>我建议在编码会话中至少运行一次 <code>/context</code>，以了解你如何使用 200k token 的上下文窗口（即使使用 Sonnet-1M，我也不完全信任整个上下文窗口能被有效利用）。对我们而言，在单体仓库中启动新会话的基础成本约为 20k tokens（10%），剩余 180k 用于实际变更——这部分消耗速度可能非常快。</p>
+<p><img src="/shinyruotechtips/imgs/%E6%88%91%E7%9A%84%20Claude%20Code%20%E5%AE%9E%E6%88%98%E7%BB%8F%E9%AA%8C%EF%BC%9A%E6%B7%B1%E5%BA%A6%E4%BD%BF%E7%94%A8%E6%AF%8F%E4%B8%AA%E5%8A%9F%E8%83%BD/2026-02-07-15-39-47-image.png" srcset="/shinyruotechtips/img/loading.gif" lazyload></p>
+<p>我有三种主要工作流：</p>
+<ul>
+<li><strong><code>/compact</code>（避免使用）</strong>：我尽可能避免使用。自动紧凑化过程不透明、易出错且优化不足。</li>
+<li><strong><code>/clear</code> + <code>/catchup</code>（简单重启）</strong>：我的默认重启方式。先 <code>/clear</code> 状态，然后运行自定义 <code>/catchup</code> 命令，让 Claude 读取当前 git 分支中所有变更文件。</li>
+<li><strong>“文档化并清除”（复杂重启）</strong>：用于大型任务。让 Claude 将计划与进度导出至 <code>.md</code> 文件，<code>/clear</code> 状态后，启动新会话并告知其读取该 <code>.md</code> 文件继续工作。</li>
+</ul>
+<p><strong>核心要点</strong>：不要信任自动紧凑化。对简单重启使用 <code>/clear</code>，对复杂任务使用“文档化并清除”方法创建持久的外部“记忆”。</p>
+<h2 id="自定义斜杠命令（Custom-Slash-Commands）"><a href="#自定义斜杠命令（Custom-Slash-Commands）" class="headerlink" title="自定义斜杠命令（Custom Slash Commands）"></a>自定义斜杠命令（Custom Slash Commands）</h2><p>我认为斜杠命令仅是常用提示词的简单快捷方式，仅此而已。我的配置极为精简：</p>
+<ul>
+<li><code>/catchup</code>：前文提及的命令，仅提示 Claude 读取当前 git 分支中所有变更文件。</li>
+<li><code>/pr</code>：简单助手，用于清理代码、暂存并准备拉取请求。</li>
+</ul>
+<p>依我之见，如果你维护着一长串复杂自定义斜杠命令列表，你已陷入反模式。对我而言，Claude 这类代理的核心价值在于：你可以输入几乎任何内容并获得有用、可合并的结果。一旦强迫工程师（或非工程师）学习一份文档化的新“魔法命令”列表才能完成工作，你就失败了。</p>
+<p><strong>核心要点</strong>：将斜杠命令用作简单的个人快捷方式，而非替代构建更直观的 <code>CLAUDE.md</code> 和更完善的代理工具链。</p>
+<h2 id="自定义子代理（Custom-Subagents）"><a href="#自定义子代理（Custom-Subagents）" class="headerlink" title="自定义子代理（Custom Subagents）"></a>自定义子代理（Custom Subagents）</h2><p>理论上，自定义子代理是 Claude Code 用于上下文管理的最强大功能。其理念很简单：复杂任务需要 X tokens 的输入上下文（例如如何运行测试），累积 Y tokens 的工作上下文，并产生 Z tokens 的答案。执行 N 个任务意味着主窗口中消耗 (X + Y + Z) * N tokens。</p>
+<p>子代理方案是将 (X + Y) * N 的工作分派给专用代理，后者仅返回最终的 Z tokens 答案，从而保持主上下文清洁。</p>
+<p>我发现它们在理念上强大，但实践中自定义子代理会引发两个新问题：</p>
+<ol>
+<li><strong>上下文隔离</strong>：如果我创建 <code>PythonTests</code> 子代理，我就将所有测试上下文从主代理中隐藏。它无法再对变更进行整体推理，被迫调用子代理才能知晓如何验证自身代码。</li>
+<li><strong>强制人类工作流</strong>：更糟的是，它们强迫 Claude 遵循刚性的人类定义工作流。我实际上在规定它必须如何委派任务——而这正是我试图让代理为我解决的问题。</li>
+</ol>
+<p>我偏好的替代方案是使用 Claude 内置的 <code>Task(...)</code> 功能派生通用代理的克隆体。</p>
+<p>我将所有关键上下文放入 <code>CLAUDE.md</code>，然后让主代理自主决定何时以及如何将工作委派给自身副本。这使我获得子代理的上下文节省优势，同时避免其缺陷。代理可动态管理自身编排。</p>
+<p>在我《构建多代理系统（第二部分）》一文中，我将此称为“主-克隆”（Master-Clone）架构，并强烈偏好它而非自定义子代理鼓励的“主-专家”（Lead-Specialist）模型。</p>
+<p><strong>核心要点</strong>：自定义子代理是脆弱的解决方案。为主代理提供上下文（在 <code>CLAUDE.md</code> 中），并让它使用自身的 <code>Task/Explore(...)</code> 功能管理委派。</p>
+<h2 id="恢复、继续与历史（Resume-Continue-amp-History）"><a href="#恢复、继续与历史（Resume-Continue-amp-History）" class="headerlink" title="恢复、继续与历史（Resume, Continue, &amp; History）"></a>恢复、继续与历史（Resume, Continue, &amp; History）</h2><p>基础层面，我频繁使用 <code>claude --resume</code> 和 <code>claude --continue</code>。它们非常适合重启故障终端或快速恢复旧会话。我常会 <code>claude --resume</code> 数天前的会话，仅为了询问代理如何克服特定错误，然后利用该信息改进我们的 <code>CLAUDE.md</code> 和内部工具链。</p>
+<p>更深入地，Claude Code 将所有会话历史存储在 <code>~/.claude/projects/</code>，以便访问原始历史会话数据。我编写了脚本对这些日志进行元分析，寻找常见异常、权限请求和错误模式，以帮助改进面向代理的上下文。</p>
+<p><strong>核心要点</strong>：使用 <code>claude --resume</code> 和 <code>claude --continue</code> 重启会话并挖掘埋藏的历史上下文。</p>
+<h2 id="钩子（Hooks）"><a href="#钩子（Hooks）" class="headerlink" title="钩子（Hooks）"></a>钩子（Hooks）</h2><p>钩子至关重要。个人项目中我不使用它们，但在复杂企业仓库中，它们对引导 Claude 至关重要。它们是确定性的“必须执行”规则，补充 <code>CLAUDE.md</code> 中的“应当执行”建议。</p>
+<p>我们使用两类钩子：</p>
+<ul>
+<li><strong>提交时阻断钩子（Block-at-Submit Hooks）</strong>：我们的主要策略。我们有一个 <code>PreToolUse</code> 钩子，包装任何 <code>Bash(git commit)</code> 命令。它检查 <code>/tmp/agent-pre-commit-pass</code> 文件（仅当所有测试通过时，我们的测试脚本才会创建该文件）。若文件缺失，钩子将阻断提交，迫使 Claude 进入“测试-修复”循环直至构建通过。</li>
+<li><strong>提示钩子（Hint Hooks）</strong>：简单的非阻断钩子，当代理执行次优操作时提供“即发即忘”式反馈。</li>
+</ul>
+<p>我们刻意不使用“写入时阻断”钩子（例如在 <code>Edit</code> 或 <code>Write</code> 时）。在代理计划中途阻断会使其困惑甚至“沮丧”。更有效的方式是让它完成工作，然后在提交阶段检查最终完成结果。</p>
+<p><strong>核心要点</strong>：使用钩子在提交时（block-at-submit）强制状态验证。避免在写入时阻断——让代理完成计划，再检查最终结果。</p>
+<h2 id="规划模式（Planning-Mode）"><a href="#规划模式（Planning-Mode）" class="headerlink" title="规划模式（Planning Mode）"></a>规划模式（Planning Mode）</h2><p>对于 AI IDE 中的任何“大型”功能变更，规划必不可少。</p>
+<p>个人项目中，我 exclusively 使用内置规划模式。这是在 Claude 开始工作前与其对齐的方式，既定义构建方法，也设定“检查点”——代理需在此暂停并向我展示工作成果。定期使用此功能可培养直觉：了解获得良好规划所需的最小上下文，同时避免 Claude 搞砸实现。</p>
+<p>在工作单体仓库中，我们开始基于 Claude Code SDK 推出定制规划工具。它类似原生规划模式，但经过强提示词引导，使其输出与我们现有的技术设计格式对齐。它还开箱即用地强制执行内部最佳实践——从代码结构到数据隐私与安全。这使工程师能像资深架构师一样“氛围感规划”（vibe plan）新功能（至少这是宣传点）。</p>
+<p><strong>核心要点</strong>：对复杂变更始终使用内置规划模式，在代理开始工作前对齐计划。</p>
+<h2 id="技能（Skills）"><a href="#技能（Skills）" class="headerlink" title="技能（Skills）"></a>技能（Skills）</h2><p>我赞同 Simon Willison 的观点：Skills（技能）可能比 MCP（Model Context Protocol，模型上下文协议）更重要。</p>
+<p>如果你关注过我的文章，会知道我已从多数开发工作流中远离 MCP，转而偏好构建简单 CLI（如我在《AI Can’t Read Your Docs》中论证的）。我对代理自主性的心理模型已演进为三个阶段：</p>
+<ol>
+<li><strong>单次提示（Single Prompt）</strong>：在单一大型提示词中提供所有上下文。（脆弱，不可扩展）</li>
+<li><strong>工具调用（Tool Calling）</strong>：“经典”代理模型。我们手工制作工具并为代理抽象现实。（更好，但创建新抽象和上下文瓶颈）</li>
+<li><strong>脚本化（Scripting）</strong>：我们向代理开放原始环境——二进制文件、脚本和文档——它即时编写代码与之交互。</li>
+</ol>
+<p>在此模型下，Agent Skills 是显而易见的下一功能。它们是“脚本化”层的正式产品化。</p>
+<p>如果你像我一样已偏好 CLI 而非 MCP，你其实一直在隐式享受 Skills 的优势。<code>SKILL.md</code> 文件仅是以更结构化、可共享和可发现的方式记录这些 CLI 与脚本，并向代理暴露它们。</p>
+<p><strong>核心要点</strong>：Skills 是正确的抽象。它们将基于“脚本化”的代理模型正式化，该模型比 MCP 所代表的刚性类 API 模型更健壮灵活。</p>
+<h2 id="MCP（Model-Context-Protocol，模型上下文协议）"><a href="#MCP（Model-Context-Protocol，模型上下文协议）" class="headerlink" title="MCP（Model Context Protocol，模型上下文协议）"></a>MCP（Model Context Protocol，模型上下文协议）</h2><p>Skills 并不意味着 MCP 已死（另见《Everything Wrong with MCP》）。此前，许多人构建了糟糕的、上下文繁重的 MCP，包含数十个仅镜像 REST API 的工具（<code>read_thing_a()</code>, <code>read_thing_b()</code>, <code>update_thing_c()</code>）。</p>
+<p>“脚本化”模型（现由 Skills 正式化）更优，但它需要安全访问环境的方式。在我看来，这是 MCP 的新聚焦角色。</p>
+<p>MCP 不应是臃肿的 API，而应是简单安全的网关，提供少量强大高层工具：</p>
+<ul>
+<li><code>download_raw_data(filters…)</code></li>
+<li><code>take_sensitive_gated_action(args…)</code></li>
+<li><code>execute_code_in_environment_with_state(code…)</code></li>
+</ul>
+<p>在此模型中，MCP 的职责不是为代理抽象现实；其职责是管理认证、网络和安全边界，然后退居幕后。它提供代理入口点，代理随后利用其脚本和 Markdown 上下文完成实际工作。</p>
+<p>我仍在使用的唯一 MCP 是 Playwright 相关的——这很合理，因其是复杂的状态化环境。我所有无状态工具（如 Jira、AWS、GitHub）均已迁移至简单 CLI。</p>
+<p><strong>核心要点</strong>：使用充当数据网关的 MCP。向代理提供一两个高层工具（如原始数据转储 API），供其进行脚本化操作。</p>
+<h2 id="Claude-Code-SDK"><a href="#Claude-Code-SDK" class="headerlink" title="Claude Code SDK"></a>Claude Code SDK</h2><p>Claude Code 不仅是交互式 CLI，也是构建全新代理（面向编码与非编码任务）的强大 SDK（Software Development Kit，软件开发工具包）。对于多数新个人项目，我已将其作为默认代理框架，取代 LangChain&#x2F;CrewAI 等工具。</p>
+<p>我主要在三方面使用它：</p>
+<ul>
+<li><strong>大规模并行脚本化</strong>：对于大型重构、缺陷修复或迁移，我不使用交互式聊天。我编写简单 bash 脚本，以并行方式调用 <code>claude -p &quot;in /pathA change all refs from foo to bar&quot;</code>。这比让主代理管理数十个子代理任务更具可扩展性和可控性。</li>
+<li><strong>构建内部聊天工具</strong>：SDK 非常适合将复杂流程封装为面向非技术用户的简单聊天界面。例如一个安装程序，出错时回退至 Claude Code SDK 为用户直接修复问题；或一个内部“v0-at-home”工具，让设计团队在自有 UI 框架中“氛围感编码”前端模拟界面，确保其想法高保真且代码可直接用于前端生产。</li>
+<li><strong>快速代理原型设计</strong>：这是我最常用的场景。不限于编码。若我对任何代理任务有想法（例如使用自定义 CLI 或 MCP 的“威胁调查代理”），我会用 Claude Code SDK 快速构建并测试原型，再决定是否投入完整部署架构。</li>
+</ul>
+<p><strong>核心要点</strong>：Claude Code SDK 是强大通用的代理框架。将其用于代码批处理、构建内部工具，以及在采用更复杂框架前快速原型化新代理。</p>
+<h2 id="Claude-Code-GHA（GitHub-Action）"><a href="#Claude-Code-GHA（GitHub-Action）" class="headerlink" title="Claude Code GHA（GitHub Action）"></a>Claude Code GHA（GitHub Action）</h2><p>Claude Code GitHub Action（GHA，GitHub 动作）可能是我最喜爱却最被低估的功能之一。概念很简单：仅在 GHA 中运行 Claude Code。但正是这种简洁性赋予其强大能力。</p>
+<p>它类似 Cursor 的后台代理或 Codex 托管 Web UI，但可定制性更强。你控制整个容器与环境，获得更丰富的数据访问权限，以及关键的更强沙箱化与审计控制——这是其他产品无法提供的。此外，它支持所有高级功能如 Hooks 和 MCP。</p>
+<p>我们用它构建了定制“任意位置 PR”工具。用户可从 Slack、Jira 甚至 CloudWatch 告警触发 PR，GHA 将修复缺陷或添加功能并返回完全测试过的 PR。</p>
+<p>由于 GHA 日志即完整代理日志，我们建立了运维流程，在公司层面定期审查这些日志，识别常见错误、bash 异常或未对齐的工程实践。这创建了数据驱动的飞轮：缺陷 → 改进的 <code>CLAUDE.md</code>&#x2F;CLI → 更优代理。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ query-claude-gha-logs --since 5d | claude -p <span class="hljs-string">&quot;see what the other claudes were getting stuck on and fix it, then put up a PR&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>核心要点</strong>：GHA 是 Claude Code 操作化的终极方式。它将 Claude Code 从个人工具转变为工程系统中可审计、自改进的核心组件。</p>
+<h2 id="settings-json"><a href="#settings-json" class="headerlink" title="settings.json"></a>settings.json</h2><p>最后，我发现以下 <code>settings.json</code> 配置对个人与职业工作均至关重要：</p>
+<ul>
+<li>**<code>HTTPS_PROXY</code>&#x2F;<code>HTTP_PROXY</code>**：调试时极佳。我用它检查原始流量，精确查看 Claude 发送的提示词。对于后台代理，它也是细粒度网络沙箱化的强大工具。</li>
+<li>**<code>MCP_TOOL_TIMEOUT</code>&#x2F;<code>BASH_MAX_TIMEOUT_MS</code>**：我调高了这些值。我喜欢运行长时复杂命令，默认超时往往过于保守。鉴于 bash 后台任务现已支持，我不确定这是否仍必要，但为防万一仍保留。</li>
+<li>**<code>ANTHROPIC_API_KEY</code>**：工作中我们使用企业 API 密钥（通过 <code>apiKeyHelper</code>）。这使我们从“按席位”许可转向“按用量”定价，更契合我们的工作模式：<ul>
+<li>它考虑了开发者用量的巨大差异（我们观察到工程师间存在 1:100 倍差异）</li>
+<li>它允许工程师在单一企业账户下试验非 Claude Code LLM 脚本</li>
+</ul>
+</li>
+<li>**<code>&quot;permissions&quot;</code>**：我偶尔会自我审计已授权 Claude 自动运行的命令列表。</li>
+</ul>
+<p><strong>核心要点</strong>：<code>settings.json</code> 是高级定制的强大场所。</p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>内容很多，但希望对你有用。如果你尚未使用 Claude Code 或 Codex CLI 等基于 CLI 的代理工具，你或许应该尝试。这些高级功能鲜有优质指南，唯一学习途径就是深入实践。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/shinyruotechtips/categories/AI%E5%BC%80%E5%8F%91/" class="category-chain-item">AI开发</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/shinyruotechtips/tags/Vide-Coding/">#Vide Coding</a>
+      
+        <a href="/shinyruotechtips/tags/AI-Agent/">#AI Agent</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Claude Code 使用深度实践指南</div>
+      <div>https://douyushinyruo.github.io/shinyruotechtips/2026/02/71250b3260a2/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>DouyuShinyruo</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年2月7日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/shinyruotechtips/2026/02/5a9eb75bd0ca/" title="快速上手Fiddler">
+                        <span class="hidden-mobile">快速上手Fiddler</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#gitalk-container', function() {
+      Fluid.utils.createCssLink('/shinyruotechtips/css/gitalk.css')
+      Fluid.utils.createScript('https://lib.baomitu.com/gitalk/1.8.0/gitalk.min.js', function() {
+        var options = Object.assign(
+          {"clientID":"7289cae2463ede906cd2","clientSecret":"84d68014e41df4e4404ac497ffe3d33cf37722fd","repo":"shinyruotechtips","owner":"DouyuShinyruo","admin":"DouyuShinyruo","language":"zh-CN || en","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
+          {
+            id: 'de8e5dd36c3c868f4951c9baaff4ae4d'
+          }
+        )
+        var gitalk = new Gitalk(options);
+        gitalk.render('gitalk-container');
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/shinyruotechtips/js/events.js" ></script>
+<script  src="/shinyruotechtips/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/shinyruotechtips/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/shinyruotechtips/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/shinyruotechtips/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

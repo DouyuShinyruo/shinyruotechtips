@@ -1,0 +1,753 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/shinyruotechtips/img/favico.png">
+  <link rel="icon" href="/shinyruotechtips/img/favico.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="DouyuShinyruo">
+  <meta name="keywords" content="测试框架,容器技术,Docker,Kubernetes,pytest,Cucumber,开发工具,AI开发,技术博客,职场发展">
+  
+    <meta name="description" content="科普一下北美科技公司对工程技术角色的区分，比如 EM(Engineering Manager)、TPM (Technical Program Manager) 都代表什么意思，分工有什么不同？ 通常北美的工程技术相关的职业分成以下五个类别：  开发工程师 SE &#x2F; SDE(Software Engineer &#x2F; Software Development Engineer) 工程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="北美科技公司对工程技术角色的区分">
+<meta property="og:url" content="https://douyushinyruo.github.io/shinyruotechtips/2026/01/27d05b87b9f3/index.html">
+<meta property="og:site_name" content="Shinyruo的技术笔记">
+<meta property="og:description" content="科普一下北美科技公司对工程技术角色的区分，比如 EM(Engineering Manager)、TPM (Technical Program Manager) 都代表什么意思，分工有什么不同？ 通常北美的工程技术相关的职业分成以下五个类别：  开发工程师 SE &#x2F; SDE(Software Engineer &#x2F; Software Development Engineer) 工程">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://douyushinyruo.github.io/shinyruotechtips/imgs/%E5%8C%97%E7%BE%8E%E7%A7%91%E6%8A%80%E5%85%AC%E5%8F%B8%E5%AF%B9%E5%B7%A5%E7%A8%8B%E6%8A%80%E6%9C%AF%E8%A7%92%E8%89%B2%E7%9A%84%E5%8C%BA%E5%88%86/2024-01-23-16-27-27-image.png">
+<meta property="article:published_time" content="2026-01-22T13:32:35.000Z">
+<meta property="article:modified_time" content="2026-01-22T13:32:35.000Z">
+<meta property="article:author" content="DouyuShinyruo">
+<meta property="article:tag" content="测试框架,容器技术,Docker,Kubernetes,pytest,Cucumber,开发工具,AI开发,技术博客,职场发展">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://douyushinyruo.github.io/shinyruotechtips/imgs/%E5%8C%97%E7%BE%8E%E7%A7%91%E6%8A%80%E5%85%AC%E5%8F%B8%E5%AF%B9%E5%B7%A5%E7%A8%8B%E6%8A%80%E6%9C%AF%E8%A7%92%E8%89%B2%E7%9A%84%E5%8C%BA%E5%88%86/2024-01-23-16-27-27-image.png">
+  
+  
+  
+  <title>北美科技公司对工程技术角色的区分 - Shinyruo的技术笔记</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/shinyruotechtips/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/shinyruotechtips/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/shinyruotechtips/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"douyushinyruo.github.io","root":"/shinyruotechtips/","version":"1.9.4","typing":{"enable":true,"typeSpeed":20,"cursorChar":"|","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/shinyruotechtips/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/shinyruotechtips/js/utils.js" ></script>
+  <script  src="/shinyruotechtips/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 35vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/shinyruotechtips/">
+      <strong>Shinyruo的技术笔记</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/shinyruotechtips/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/shinyruotechtips/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/shinyruotechtips/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/shinyruotechtips/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/shinyruotechtips/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" target="_blank" rel="noopener" href="https://github.com/DouyuShinyruo">
+                <i class="iconfont icon-github-fill"></i>
+                <span>GitHub</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/shinyruotechtips/img/default1.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.8)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="北美科技公司对工程技术角色的区分"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-01-22 21:32" pubdate>
+          2026年1月22日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.3k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          20 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">北美科技公司对工程技术角色的区分</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>科普一下北美科技公司对工程技术角色的区分，比如 EM(Engineering Manager)、TPM (Technical Program Manager) 都代表什么意思，分工有什么不同？</p>
+<p>通常北美的工程技术相关的职业分成以下五个类别：</p>
+<ul>
+<li>开发工程师 SE &#x2F; SDE(Software Engineer &#x2F; Software Development Engineer)</li>
+<li>工程经理 EM &#x2F; SDM(Engineering Manager &#x2F; Software Development Manager)</li>
+<li>技术主管 TL &#x2F; TLM (Tech Lead &#x2F; Tech Lead Manager)</li>
+<li>技术项目经理 TPM (Technical Program Manager)</li>
+<li>产品经理 PM (Product Manager)</li>
+</ul>
+<p>这些角色之间的差别很难描述，知名技术专栏 The Pragmatic Engineer 的作者，前 Uber 的工程经理 Gergely Orosz 写过一篇文章：《<a target="_blank" rel="noopener" href="https://newsletter.pragmaticengineer.com/p/engineering-leadership-skillset-overlaps">Engineering Leadership Skill Set Overlaps</a>》，从三个维度来区分这些角色之间的差别，相对比较准确客观。</p>
+<p><img src="/shinyruotechtips/imgs/%E5%8C%97%E7%BE%8E%E7%A7%91%E6%8A%80%E5%85%AC%E5%8F%B8%E5%AF%B9%E5%B7%A5%E7%A8%8B%E6%8A%80%E6%9C%AF%E8%A7%92%E8%89%B2%E7%9A%84%E5%8C%BA%E5%88%86/2024-01-23-16-27-27-image.png" srcset="/shinyruotechtips/img/loading.gif" lazyload></p>
+<p>这三个维度分别是：</p>
+<ul>
+<li>战略对齐：明确组织的愿景、使命和战略；与团队工作在一起，保持战略上的一致，避免资源上的浪费；保持各团队之间信息通畅，处理好团队之间的依赖关系，让团队一起协作。</li>
+<li>人员管理：确保团队健康，帮助团队成员成长，推动团队的执行。</li>
+<li>软件开发：与生成产品代码直接相关的工作，比如系统设计、编码、代码审查、部署、监控等等。</li>
+</ul>
+<p>虽然这三个维度不足以覆盖各个工程角色中的所有活动（比如行政、招聘），但确实可以很好的用可视化的方式来区分各个工程角色的差别。</p>
+<p>让我们具体看一下各个角色的主要工作职责：</p>
+<h4 id="开发工程师-SE-x2F-SDE-Software-Engineer-x2F-Software-Development-Engineer"><a href="#开发工程师-SE-x2F-SDE-Software-Engineer-x2F-Software-Development-Engineer" class="headerlink" title="开发工程师 SE &#x2F; SDE(Software Engineer &#x2F; Software Development Engineer)"></a>开发工程师 SE &#x2F; SDE(Software Engineer &#x2F; Software Development Engineer)</h4><ul>
+<li>开发工程师主要以技术开发为主</li>
+<li>资深的工程师会参与一些跨团队的协作，以及指导新手工程师</li>
+<li>不会涉及人员管理</li>
+</ul>
+<h4 id="工程经理-EM-x2F-SDM-Engineering-Manager-x2F-Software-Development-Manager"><a href="#工程经理-EM-x2F-SDM-Engineering-Manager-x2F-Software-Development-Manager" class="headerlink" title="工程经理 EM &#x2F; SDM(Engineering Manager &#x2F; Software Development Manager)"></a>工程经理 EM &#x2F; SDM(Engineering Manager &#x2F; Software Development Manager)</h4><ul>
+<li>工程经理则以人员管理为主，要花大量时间在团队建设和帮助员工成长上面</li>
+<li>需要将组织的战略和团队以及团队成员对齐，确保团队做的事情和部门或公司的目标是一致的</li>
+<li>要和产品经理、技术项目经理协作，参与项目管理，设定项目目标，制定项目计划，推动项目进展</li>
+<li>软件开发相关的工作占比极少，通常只是参与技术决策和代码审查，即使参与开发也不应负责关键模块，否则容易成为团队瓶颈</li>
+</ul>
+<h4 id="技术主管-TL-x2F-TLM-Tech-Lead-x2F-Tech-Lead-Manager"><a href="#技术主管-TL-x2F-TLM-Tech-Lead-x2F-Tech-Lead-Manager" class="headerlink" title="技术主管 TL &#x2F; TLM (Tech Lead &#x2F; Tech Lead Manager)"></a>技术主管 TL &#x2F; TLM (Tech Lead &#x2F; Tech Lead Manager)</h4><ul>
+<li>技术主管会直接参与开发，和工程师相比比例要低一些，还要帮助团队做出技术决策</li>
+<li>技术主管有少量的人员管理职责，以技术指导为主，一般不会涉及绩效、人事相关</li>
+<li>技术主管会和产品经理协作推动项目进展，偏项目执行层面</li>
+</ul>
+<h4 id="技术项目经理-TPM-Technical-Program-Manager"><a href="#技术项目经理-TPM-Technical-Program-Manager" class="headerlink" title="技术项目经理 TPM (Technical Program Manager)"></a>技术项目经理 TPM (Technical Program Manager)</h4><ul>
+<li>技术项目经理主要职责是管理推动跨多个团队的大型复杂项目</li>
+<li>通常不涉及人员管理，除非是资深的 TPM 下面还带 TPM</li>
+<li>要花大量时间和 stakeholders（利益相关方）沟通协作，从而推动项目进展</li>
+</ul>
+<h4 id="产品经理-PM-Product-Manager"><a href="#产品经理-PM-Product-Manager" class="headerlink" title="产品经理 PM (Product Manager)"></a>产品经理 PM (Product Manager)</h4><ul>
+<li><p>产品经理需要将组织的战略转化成产品设计</p>
+</li>
+<li><p>产品经理需要花大量时间和 SDE、EM、TPM 一起协作，确保产品设计能被理解和执行</p>
+</li>
+<li><p>产品经理通常不涉及人员管理，除非是资深产品经理或产品总监，有直接下属</p>
+</li>
+<li><p>职责和角色的对应关系</p>
+</li>
+</ul>
+<p>除了上面说的软件开发、战略对齐和人员管理三种维度，还有一种更简单直接的区分方法是按照职责来划分，将职责划分成：项目管理 (Project Management)、人员管理 (People Management) 和技术 (Technical Leadership) 三部分。</p>
+<ul>
+<li><strong>工程经理（EM）</strong> 以人员管理为主，但是也会兼顾一部分的技术和项目管理</li>
+<li><strong>技术主管（TL）</strong> 以技术为主，兼顾少量项目管理和人员管理</li>
+<li><strong>项目经理（TPM）</strong> 以项目管理为主，不怎么参与人员管理和技术</li>
+</ul>
+<p>以上就是通常北美的大型科技公司在技术公司工程团队中各个角色的介绍，以及区分。</p>
+<h3 id="不同的体量的公司中各个角色分别负责什么？"><a href="#不同的体量的公司中各个角色分别负责什么？" class="headerlink" title="不同的体量的公司中各个角色分别负责什么？"></a>不同的体量的公司中各个角色分别负责什么？</h3><p>不同的公司由于团队规模不一样，所以角色划分也有所不同，上面的划分主要是针对大型科技公司的组织架构来划分的角色，对于中小公司其实没有那么细。比如创业公司老板什么都做，中小型公司没有 TPM（技术项目经理），只有大公司才会有专门的 TPM 去组织管理跨多个团队的项目。</p>
+<p>如果我们把一个项目按照 WWHWW 拆分：</p>
+<ul>
+<li><strong>Why？</strong> 为什么要做？</li>
+<li><strong>What？</strong> 项目的目标是什么？做成什么样？</li>
+<li><strong>How？</strong> 项目要如何完成？技术方案、系统架构是什么？</li>
+<li><strong>When？</strong> 项目何时可以交付？Roadmap 和计划是什么？</li>
+<li><strong>Who？</strong> 安排谁来做这个项目？</li>
+</ul>
+<p>那么通常产品经理（PM）是负责解决 Why 和 What 的，解释清楚为什么要立项，要做成什么样。也就是我们通常说的立项和项目需求。</p>
+<p>在确定需求后，工程经理（EM）就要负责去评估时间（When），安排人手（Who），和团队的工程师一起做出技术方案（How）并推动项目完成。通常 EM 只负责本团队的项目。</p>
+<p>在大公司，一些复杂的项目需要多个团队一起协作，这种情况下单靠 PM 和 EM 是不够的，所以这时候通常会需要技术项目经理（TPM）的帮助，对于跨团队的大项目，TPM 和 PM 以及各个团队的 EM 一起协作，定义好 Roadmap（When），任务分解到各个团队（Who），解决项目中的问题，推动项目的执行。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/shinyruotechtips/categories/%E8%81%8C%E5%9C%BA%E5%8F%91%E5%B1%95/" class="category-chain-item">职场发展</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>北美科技公司对工程技术角色的区分</div>
+      <div>https://douyushinyruo.github.io/shinyruotechtips/2026/01/27d05b87b9f3/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>DouyuShinyruo</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年1月22日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/shinyruotechtips/2026/01/a90be9f6b5ef/" title="10分钟搭建Cucumber框架">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">10分钟搭建Cucumber框架</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/shinyruotechtips/2025/12/a1e1acafc8b1/" title="如何配置一个DNS服务？">
+                        <span class="hidden-mobile">如何配置一个DNS服务？</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#gitalk-container', function() {
+      Fluid.utils.createCssLink('/shinyruotechtips/css/gitalk.css')
+      Fluid.utils.createScript('https://lib.baomitu.com/gitalk/1.8.0/gitalk.min.js', function() {
+        var options = Object.assign(
+          {"clientID":"7289cae2463ede906cd2","clientSecret":"84d68014e41df4e4404ac497ffe3d33cf37722fd","repo":"shinyruotechtips","owner":"DouyuShinyruo","admin":"DouyuShinyruo","language":"zh-CN || en","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
+          {
+            id: '4ec301d129097582277fadfed870c7ab'
+          }
+        )
+        var gitalk = new Gitalk(options);
+        gitalk.render('gitalk-container');
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/shinyruotechtips/js/events.js" ></script>
+<script  src="/shinyruotechtips/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/shinyruotechtips/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/shinyruotechtips/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/shinyruotechtips/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

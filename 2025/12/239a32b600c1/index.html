@@ -1,0 +1,827 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/shinyruotechtips/img/favico.png">
+  <link rel="icon" href="/shinyruotechtips/img/favico.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="DouyuShinyruo">
+  <meta name="keywords" content="测试框架,容器技术,Docker,Kubernetes,pytest,Cucumber,开发工具,AI开发,技术博客,职场发展">
+  
+    <meta name="description" content="RESTful API随着互联网和移动设备的发展，人们对Web应用的使用需求也增加，传统的动态页面（如JSP）由于低效率而渐渐被HTML+JavaScript(Ajax)的前后端分离所取代，并且安卓、IOS、小程序等形式客户端层出不穷，客户端的种类出现多元化，而客户端和服务端就需要接口进行通信，但接口的规范性是一个问题。 所以一套结构清晰、符合标准、易于理解、扩展方便让大部分人都能够理解接受的接口">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何使用Rest Assured进行RESTful API测试">
+<meta property="og:url" content="https://douyushinyruo.github.io/shinyruotechtips/2025/12/239a32b600c1/index.html">
+<meta property="og:site_name" content="Shinyruo的技术笔记">
+<meta property="og:description" content="RESTful API随着互联网和移动设备的发展，人们对Web应用的使用需求也增加，传统的动态页面（如JSP）由于低效率而渐渐被HTML+JavaScript(Ajax)的前后端分离所取代，并且安卓、IOS、小程序等形式客户端层出不穷，客户端的种类出现多元化，而客户端和服务端就需要接口进行通信，但接口的规范性是一个问题。 所以一套结构清晰、符合标准、易于理解、扩展方便让大部分人都能够理解接受的接口">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://douyushinyruo.github.io/shinyruotechtips/imgs/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Rest%20Assured%E8%BF%9B%E8%A1%8CRESTful%20API%E6%B5%8B%E8%AF%95/2024-02-21-17-54-42-image.png">
+<meta property="og:image" content="https://douyushinyruo.github.io/shinyruotechtips/imgs/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Rest%20Assured%E8%BF%9B%E8%A1%8CRESTful%20API%E6%B5%8B%E8%AF%95/2024-02-21-17-56-19-image.png">
+<meta property="og:image" content="https://douyushinyruo.github.io/shinyruotechtips/imgs/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Rest%20Assured%E8%BF%9B%E8%A1%8CRESTful%20API%E6%B5%8B%E8%AF%95/2024-02-26-15-37-48-image.png">
+<meta property="og:image" content="https://douyushinyruo.github.io/shinyruotechtips/imgs/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Rest%20Assured%E8%BF%9B%E8%A1%8CRESTful%20API%E6%B5%8B%E8%AF%95/2024-02-26-16-33-28-image.png">
+<meta property="og:image" content="https://douyushinyruo.github.io/shinyruotechtips/imgs/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Rest%20Assured%E8%BF%9B%E8%A1%8CRESTful%20API%E6%B5%8B%E8%AF%95/2024-02-26-16-44-56-image.png">
+<meta property="og:image" content="https://douyushinyruo.github.io/shinyruotechtips/imgs/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Rest%20Assured%E8%BF%9B%E8%A1%8CRESTful%20API%E6%B5%8B%E8%AF%95/2024-02-26-17-12-44-image.png">
+<meta property="article:published_time" content="2025-12-20T12:51:06.000Z">
+<meta property="article:modified_time" content="2025-12-20T12:51:06.000Z">
+<meta property="article:author" content="DouyuShinyruo">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="API Testing">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://douyushinyruo.github.io/shinyruotechtips/imgs/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Rest%20Assured%E8%BF%9B%E8%A1%8CRESTful%20API%E6%B5%8B%E8%AF%95/2024-02-21-17-54-42-image.png">
+  
+  
+  
+  <title>如何使用Rest Assured进行RESTful API测试 - Shinyruo的技术笔记</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/shinyruotechtips/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/shinyruotechtips/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/shinyruotechtips/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"douyushinyruo.github.io","root":"/shinyruotechtips/","version":"1.9.4","typing":{"enable":true,"typeSpeed":20,"cursorChar":"|","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/shinyruotechtips/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/shinyruotechtips/js/utils.js" ></script>
+  <script  src="/shinyruotechtips/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 35vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/shinyruotechtips/">
+      <strong>Shinyruo的技术笔记</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/shinyruotechtips/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/shinyruotechtips/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/shinyruotechtips/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/shinyruotechtips/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/shinyruotechtips/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" target="_blank" rel="noopener" href="https://github.com/DouyuShinyruo">
+                <i class="iconfont icon-github-fill"></i>
+                <span>GitHub</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/shinyruotechtips/img/default1.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.8)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="如何使用Rest Assured进行RESTful API测试"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-12-20 20:51" pubdate>
+          2025年12月20日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          8.9k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          75 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">如何使用Rest Assured进行RESTful API测试</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h4 id="RESTful-API"><a href="#RESTful-API" class="headerlink" title="RESTful API"></a>RESTful API</h4><p>随着互联网和移动设备的发展，人们对Web应用的使用需求也增加，传统的动态页面（如JSP）由于低效率而渐渐被HTML+JavaScript(Ajax)的前后端分离所取代，并且安卓、IOS、小程序等形式客户端层出不穷，客户端的种类出现多元化，而客户端和服务端就需要接口进行通信，但接口的规范性是一个问题。</p>
+<p>所以一套结构清晰、符合标准、易于理解、扩展方便让大部分人都能够理解接受的接口风格就显得越来越重要，而RESTful风格的接口(RESTful API)刚好有以上特点，就逐渐被实践应用而变得流行起来，可以参考<a target="_blank" rel="noopener" href="https://docs.github.com/en/rest?apiVersion=2022-11-28">GitHub REST API documentation - GitHub Docs</a>的文档对REST API进行学习。</p>
+<p>REST并没有一个明确的标准，而更像是一种设计的风格，满足这种设计风格的程序或接口我们称之为RESTful（从单词字面来看就是一个形容词）。所以RESTful API 就是满足REST架构风格的接口。如果用一句话大概概括一下REST风格，那就是<strong>URL定位资源，用HTTP动词（GET,POST,DELETE,DETC）描述操作。</strong> 此处只简单介绍REST API，因为这不是讨论的重点，关于REST API设计规范和限制条件，需要在日常开发中了解学习。</p>
+<h4 id="HTTP请求方法和状态码"><a href="#HTTP请求方法和状态码" class="headerlink" title="HTTP请求方法和状态码"></a>HTTP请求方法和状态码</h4><p>REST API使用五种HTTP方法来发送请求：</p>
+<ul>
+<li>GET：在特定的URL上检索信息。</li>
+<li>PUT：如果资源存在，则更新先前的资源，若不存在，则创建新的信息。</li>
+<li>POST：向服务器发送信息，例如上传数据或创建新的实体。</li>
+<li>DELETE：删除特定URL上的所有当前资源。</li>
+<li>PATCH：用于对资源进行部分更新。</li>
+</ul>
+<p>当使用以上方法发送请求后，客户端会收到数字形式的代码，称为“状态码”，有时也叫“响应码”。然后我们可以根据这些状态码来解读服务器对特定请求发送的响应。状态码主要分为五类，具体如下：</p>
+<ul>
+<li>1xx（100-199）：信息，服务器收到请求，需要请求者继续执行操作</li>
+<li>2xx（200-299）：成功，操作被成功接收并处理</li>
+<li>3xx（300-399）：重定向，需要进一步的操作以完成请求</li>
+<li>4xx（400-499）：客户端错误，请求包含语法错误或无法完成请求</li>
+<li>5xx（500-599）：服务器错误，服务器在处理请求的过程中发生了错误，无法完成请求</li>
+</ul>
+<p>通过以上状态码，我们可以判断应用程序的运行情况。1xx、2xx和3xx状态码通常不被视为错误，而是提供了一些信息性的消息，它们并不会影响用户体验。</p>
+<p>但是，如果收到了4xx或5xx状态码，则表示发生了错误。这意味着用户&#x2F;APP在访问API时可能会遇到错误消息。4xx状态码通常与客户端或浏览器级别的错误相关，而5xx状态码通常表示服务器级别的错误。因此在进行REST API测试时，应该通过检查这些错误代码来评估每个响应的情况。</p>
+<p>有关HTTP协议的具体内容细节，可以查阅。<a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTTP">HTTP | MDN (mozilla.org)</a></p>
+<h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h4><p>以toolsqa网站的一个demo作为例子，我们可以在这里<a target="_blank" rel="noopener" href="https://demoqa.com/swagger/#/BookStore">Swagger UI (demoqa.com)</a>看到该示例提供的一些API，这个例子是一个书店的库存管理系统，提供了多种REST API方法来获取书店中书的信息。</p>
+<p>Swagger 是一个实现了OpenAPI 规范的工具集，SwaggerUI是其生成的文档&#x2F;页面。</p>
+<p><img src="/shinyruotechtips/imgs/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Rest%20Assured%E8%BF%9B%E8%A1%8CRESTful%20API%E6%B5%8B%E8%AF%95/2024-02-21-17-54-42-image.png" srcset="/shinyruotechtips/img/loading.gif" lazyload></p>
+<p>在SwaggerUI中我们还可以对接口进行执行，这里的GET方法返回的是Books的具体内容。</p>
+<p><img src="/shinyruotechtips/imgs/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Rest%20Assured%E8%BF%9B%E8%A1%8CRESTful%20API%E6%B5%8B%E8%AF%95/2024-02-21-17-56-19-image.png" srcset="/shinyruotechtips/img/loading.gif" lazyload></p>
+<h4 id="使用Rest-Assured进行REST-API测试"><a href="#使用Rest-Assured进行REST-API测试" class="headerlink" title="使用Rest Assured进行REST API测试"></a>使用Rest Assured进行REST API测试</h4><p>Rest Assured是一个Java库，用于测试RESTful API。它被广泛应用于测试基于JSON和XML的Web应用程序。此外，它完全支持GET、PUT、POST、PATCH和DELETE等所有REST方法。接下来详细介绍如何使用Rest Assured库测试一个REST API。</p>
+<p>要编写一个示例的REST API测试，我们将使用以下REST API链接。</p>
+<ul>
+<li><p>请求URL：<a target="_blank" rel="noopener" href="https://demoqa.com/BookStore/v1/Books">https://demoqa.com/BookStore/v1/Books</a></p>
+</li>
+<li><p>HTTP方法：GET</p>
+</li>
+<li><p>备注：此URL将返回书店的库存详情。请求中没有输入参数。</p>
+</li>
+<li><p>响应：{“books”: [{“isbn”: “string”,”title”: “string”,”subTitle”: “string”,”author”:”string”,”publish_date”: “2022-01-25T13:44:50.276Z”,”publisher”: “string”,”pages”: 0,”description”: “string”,”website”: “string”}]}</p>
+</li>
+</ul>
+<p>实际上，如果我们直接在浏览器中打开上述URL，我们会得到如下所示的输出：</p>
+<p><img src="/shinyruotechtips/imgs/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Rest%20Assured%E8%BF%9B%E8%A1%8CRESTful%20API%E6%B5%8B%E8%AF%95/2024-02-26-15-37-48-image.png" srcset="/shinyruotechtips/img/loading.gif" lazyload></p>
+<p>要使用Rest Assured库以编程方式获取相同的输出，我们需要按照以下步骤操作：</p>
+<ol>
+<li>使用RestAssured类生成一个针对URL的RequestSpecification。</li>
+<li>指定HTTP方法类型（GET方法）。</li>
+<li>将请求发送到服务器。</li>
+<li>从服务器获取响应。</li>
+<li>打印返回的响应体。</li>
+</ol>
+<p>以下是执行以上步骤的示例代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> io.restassured.RestAssured;<br><span class="hljs-keyword">import</span> io.restassured.http.Method;<br><span class="hljs-keyword">import</span> io.restassured.response.Response;<br><span class="hljs-keyword">import</span> io.restassured.specification.RequestSpecification;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">RestAssuredAPITest</span> &#123;<br><br> <span class="hljs-meta">@Test</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">GetBooksDetails</span><span class="hljs-params">()</span> &#123; <br>    <span class="hljs-comment">// Specify the base URL to the RESTful web service </span><br>    RestAssured.baseURI = <span class="hljs-string">&quot;https://demoqa.com/BookStore/v1/Books&quot;</span>; <br>    <span class="hljs-comment">// Get the RequestSpecification of the request to be sent to the server. </span><br>    <span class="hljs-type">RequestSpecification</span> <span class="hljs-variable">httpRequest</span> <span class="hljs-operator">=</span> RestAssured.given(); <br>    <span class="hljs-comment">// specify the method type (GET) and the parameters if any. </span><br>    <span class="hljs-comment">//In this case the request does not take any parameters </span><br>    <span class="hljs-type">Response</span> <span class="hljs-variable">response</span> <span class="hljs-operator">=</span> httpRequest.request(Method.GET, <span class="hljs-string">&quot;&quot;</span>);<br>    <span class="hljs-comment">// Print the status and message body of the response received from the server </span><br>    System.out.println(<span class="hljs-string">&quot;Status received =&gt; &quot;</span> + response.getStatusLine()); <br>    System.out.println(<span class="hljs-string">&quot;Response=&gt;&quot;</span> + response.prettyPrint());<br><br>&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>这样一来，我们就能够发起测试 API 调用，并从对应的接口获取响应了。</p>
+<p>现在我们来简单说明一下对应的代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 指定 RESTful Web 服务的基本 URL</span><br>RestAssured.baseURI = <span class="hljs-string">&quot;https://demoqa.com/BookStore/v1/Books&quot;</span>;<br></code></pre></td></tr></table></figure>
+
+<p>上述代码使用 RestAssured 类来设定基本 URI。在这里，基本 URI 是 “<a target="_blank" rel="noopener" href="https://demoqa.com/BookStore/v1/Books%E2%80%9D%E3%80%82%E5%9F%BA%E6%9C%AC">https://demoqa.com/BookStore/v1/Books”。基本</a> URI 指示了我们即将从服务器请求的资源的根地址（因此称为基本 URI）。然后，当我们在随后的代码中实际发起请求时，我们会添加参数（如果有的话）。</p>
+<p>io.restassured.RestAssured 类是我们进行测试时所发起的任何类型的 HTTP 请求的基础。该类的一些关键特性包括：</p>
+<ul>
+<li>使用基本 URI 生成 HTTP 请求。</li>
+<li>提供支持以创建不同的 HTTP 方法类型（GET、POST、PUT、PATCH、DELETE、UPDATE、HEAD 和 OPTIONS）的请求。</li>
+<li>使用 HTTP 与服务器进行通信，并将测试中创建的请求发送到服务器。</li>
+<li>接收来自服务器的响应。</li>
+<li>提供支持验证从服务器接收到的响应。</li>
+<li>io.restassured.RestAssured类内部使用了一个基于 Groovy 语言的 HTTP 客户端 HTTP builder 库。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 获取要发送到服务器的请求的RequestSpecification</span><br><span class="hljs-type">RequestSpecification</span> <span class="hljs-variable">httpRequest</span> <span class="hljs-operator">=</span> RestAssured.given(); <br><span class="hljs-comment">// 指定方法类型(GET)和参数(如果有的话)。</span><br><span class="hljs-comment">// 在这种情况下，请求不带任何参数。</span><br><span class="hljs-type">Response</span> <span class="hljs-variable">response</span> <span class="hljs-operator">=</span> httpRequest.request(Method.GET, <span class="hljs-string">&quot;&quot;</span>);<br></code></pre></td></tr></table></figure>
+
+<p>接下来的代码获取了要发送到服务器的请求的RequestSpecification对象。Rest Assured库提供了名为RequestSpecification的接口，用于此目的。变量httpRequest存储了请求，以便我们可以在需要时修改它，比如添加身份验证信息、添加头部等。在这个示例测试中，我们没有对该变量进行修改。</p>
+<p>现在，我们调用接口以获取资源，以上代码使用request方法向服务器发送资源请求。</p>
+<p>request方法接受两个参数，第一个是HTTP方法，第二个是一个字符串。字符串参数用于指定要与基本URI一起发送的参数。在这种情况下，为了获取Books的详情，我们不发送任何参数，因此使用了空字符串。request方法的返回类型是Response对象，这意味着request方法从服务器获取了响应并且把结果存在response这个实例中。</p>
+<p>Response接口（io.restassured.response.Response）表示从服务器返回的响应。它包含服务器发送的所有数据。接下来的例子中可以调用此响应对象上的不同方法来提取响应，例如响应状态、header等。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 打印从服务器接收到的响应消息正文</span><br>System.out.println(<span class="hljs-string">&quot;Status received =&gt; &quot;</span> + response.getStatusLine());<br>System.out.println(<span class="hljs-string">&quot;Response=&gt;&quot;</span> + response.prettyPrint());<br></code></pre></td></tr></table></figure>
+
+<p>在上述代码行中，我们将响应作为字符串读取，并将其打印到System.out。我们使用响应接口的getBody方法返回响应的body。然后将其打印到System.out。</p>
+<p>我们也可以使用Rest Assured提供的简写方法来编写上述测试代码。以下是稍微简化了的代码段。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Test</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">GetWeatherDetailsCondensed</span><span class="hljs-params">()</span> &#123;<br><span class="hljs-comment">// 指定RESTful web服务的基本URL</span><br>RestAssured.baseURI = <span class="hljs-string">&quot;https://demoqa.com/BookStore/v1/Books&quot;</span>;<br><span class="hljs-comment">// 获取要发送的请求的RequestSpecification</span><br><span class="hljs-type">RequestSpecification</span> <span class="hljs-variable">httpRequest</span> <span class="hljs-operator">=</span> RestAssured.given();<br><span class="hljs-comment">// 调用RequestSpecification.get()方法以获取响应。</span><br><span class="hljs-type">Response</span> <span class="hljs-variable">response</span> <span class="hljs-operator">=</span> httpRequest.get(<span class="hljs-string">&quot;&quot;</span>);<br><span class="hljs-comment">// Response.asString方法将直接返回主体的内容 // 作为字符串</span><br>System.out.println(<span class="hljs-string">&quot;Response Body is =&gt; &quot;</span> + response.asString());<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>在这里使用了RequestSpecification对象上的“get”方法，该方法向接口发送了一个GET方法，返回Response对象。</p>
+<h4 id="使用Rest-Assured验证HTTP响应状态"><a href="#使用Rest-Assured验证HTTP响应状态" class="headerlink" title="使用Rest Assured验证HTTP响应状态"></a>使用Rest Assured验证HTTP响应状态</h4><p>每个客户端发送到服务器的HTTP请求都会收到一个HTTP响应，其中包含一个状态码。这个状态码告诉我们HTTP响应是否成功。其中我们进行了一个示例的REST API测试调用。接下来将讨论如何使用REST Assured来验证HTTP响应的状态。</p>
+<p>一个HTTP响应对象通常代表了Web服务服务器发回的HTTP数据包（响应数据包），作为对客户端请求的响应。一个HTTP响应包含状态、header、body这几个部分。当我们说需要验证HTTP响应状态时，我们希望有一种机制来读取和验证整个响应对象，包括状态、header、body，需要验证HTTP响应的每个组成部分。</p>
+<p>同一个REST API会以XML或JSON格式返回响应消息，格式取决于HTTP请求中的Media-Type属性。那么客户端如何知道它将从API获得什么类型的响应呢？这是由响应头来管理的。响应头包含一个Content-Type属性，用于通知响应主体格式的类型。</p>
+<p>假设我们通过浏览器向图书商店发送GET请求，如下所示：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">curl -X GET <span class="hljs-string">&quot;https://demoqa.com/BookStore/v1/Books&quot;</span> -H <span class="hljs-string">&quot;accept: application/json&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p>执行上述命令，结果如下：</p>
+<p><img src="/shinyruotechtips/imgs/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Rest%20Assured%E8%BF%9B%E8%A1%8CRESTful%20API%E6%B5%8B%E8%AF%95/2024-02-26-16-33-28-image.png" srcset="/shinyruotechtips/img/loading.gif" lazyload></p>
+<p>如图，响应头中包含一个content-type属性，还有一些其他的属性值。通过解析这个头部，客户端就知道可以期待什么类型的响应（body）。</p>
+<p>当客户端从服务器请求特定信息时，服务器会向客户端发送一个带有状态码的响应。服务器返回的状态码告诉我们请求是否成功。如果请求成功，服务器会在200-299的范围内发送状态码。如果请求未成功，则返回不在该范围内的状态码。</p>
+<p>Rest Assured库提供了一个名为”io.restassured.response”的包，其中包含一个Response接口。Response接口提供了一些方法，可以帮助获取接收到的响应的各个部分。</p>
+<p><img src="/shinyruotechtips/imgs/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Rest%20Assured%E8%BF%9B%E8%A1%8CRESTful%20API%E6%B5%8B%E8%AF%95/2024-02-26-16-44-56-image.png" srcset="/shinyruotechtips/img/loading.gif" lazyload></p>
+<p>其中方法 getStatusCode() 用于获取响应的状态码。该方法返回一个int，然后我们可以验证其值，这里使用TestNG Assert 用于验证状态码，代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> <span class="hljs-keyword">static</span> org.junit.Assert.*;<br><span class="hljs-keyword">import</span> org.testng.Assert;   <span class="hljs-comment">//用于验证响应状态 </span><br><span class="hljs-keyword">import</span> org.testng.annotations.Test;<br><span class="hljs-keyword">import</span> io.restassured.RestAssured;<br><span class="hljs-keyword">import</span> io.restassured.response.Response;<br><span class="hljs-keyword">import</span> io.restassured.specification.RequestSpecification;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">RestAssuredTestResponse</span> &#123;<br>    <span class="hljs-meta">@Test</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">GetBookDetails</span><span class="hljs-params">()</span> &#123;  <br>        <span class="hljs-comment">// 指定 RESTful web 服务的基本 URL</span><br>        RestAssured.baseURI = <span class="hljs-string">&quot;https://demoqa.com/BookStore/v1/Books&quot;</span>;<br>        <span class="hljs-comment">// 获取要发送到服务器的请求的 RequestSpecification</span><br>        <span class="hljs-type">RequestSpecification</span> <span class="hljs-variable">httpRequest</span> <span class="hljs-operator">=</span> RestAssured.given();<br><br>        <span class="hljs-type">Response</span> <span class="hljs-variable">response</span> <span class="hljs-operator">=</span> httpRequest.get(<span class="hljs-string">&quot;&quot;</span>);<br><br>        <span class="hljs-comment">// 获取请求的状态码。 </span><br>        <span class="hljs-comment">// 如果请求成功，状态码将是 200</span><br>        <span class="hljs-type">int</span> <span class="hljs-variable">statusCode</span> <span class="hljs-operator">=</span> response.getStatusCode();<br><br>        <span class="hljs-comment">// 断言返回正确的状态码。</span><br>        Assert.assertEquals(statusCode <span class="hljs-comment">/*实际值*/</span>, <span class="hljs-number">200</span> <span class="hljs-comment">/*期望值*/</span>, <span class="hljs-string">&quot;返回了正确的状态码&quot;</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>下面的代码用于获取状态码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">int</span> <span class="hljs-variable">statusCode</span> <span class="hljs-operator">=</span> response.getStatusCode();<br></code></pre></td></tr></table></figure>
+
+<p>返回值 “statusCode” 被与期望值即 200 进行比较。如果两个值相等，则返回相应的消息或者打印正确的log。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 断言正确的状态码已返回。</span><br>Assert.assertEquals(statusCode <span class="hljs-comment">/*实际值*/</span>, <span class="hljs-number">200</span> <span class="hljs-comment">/*期望值*/</span>, <span class="hljs-string">&quot;返回了正确的状态码&quot;</span>);<br></code></pre></td></tr></table></figure>
+
+<p>通过这种方式，我们可以使用响应接口的 “getStatusCode()” 方法来验证响应的状态码，这是一种比较常见的场景，即接口返回成功的状态码2xx。接下来让我们讨论如何验证返回值不是 200（即错误状态码）的状态码，这也是另一种对接口的常见测试场景。</p>
+<p>在实际的测试场景中可能存在诸如服务器宕机、REST API 不正常运行或请求本身存在问题等原因。总之，我们可能会遇到以下几种情况：</p>
+<ol>
+<li>服务器宕机。</li>
+<li>客户端请求不正确。</li>
+<li>客户端请求的资源不存在。</li>
+<li>在处理请求时服务器端发生错误。</li>
+</ol>
+<p>当出现以上任何情况时，REST API 将返回一个错误状态码，客户端必须根据此状态码进行相应的处理。对之前给出的Demo链接，创建另一个测试，来模拟一个错误的场景。在这里，我们将验证当输入无效参数时， Web 服务返回的 HTTP 状态码。</p>
+<p>我们提供参数以获取用户详细信息。这里我们提供了不存在的 userId 作为参数。代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> <span class="hljs-keyword">static</span> org.junit.Assert.*;<br><span class="hljs-keyword">import</span> org.testng.Assert;   <span class="hljs-comment">//用于验证响应状态 </span><br><span class="hljs-keyword">import</span> org.testng.annotations.Test;<br><span class="hljs-keyword">import</span> io.restassured.RestAssured;<br><span class="hljs-keyword">import</span> io.restassured.response.Response;<br><span class="hljs-keyword">import</span> io.restassured.specification.RequestSpecification;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">RestAssuredTestResponse</span> &#123;<br><br>    <span class="hljs-meta">@Test</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">GetPetDetails</span><span class="hljs-params">()</span> &#123;  <br>        <span class="hljs-comment">// 指定 RESTful web 服务的基本 URL</span><br>        RestAssured.baseURI = <span class="hljs-string">&quot;https://demoqa.com/Account/v1/User/&quot;</span>;<br>        <span class="hljs-comment">// 获取要发送到服务器的请求的 RequestSpecification</span><br>        <span class="hljs-type">RequestSpecification</span> <span class="hljs-variable">httpRequest</span> <span class="hljs-operator">=</span> RestAssured.given();<br><br>        <span class="hljs-type">Response</span> <span class="hljs-variable">response</span> <span class="hljs-operator">=</span> httpRequest.get(<span class="hljs-string">&quot;test&quot;</span>);<br><br>        <span class="hljs-comment">// 获取请求的状态码。</span><br>        <span class="hljs-comment">// 如果请求失败，服务端返回的状态码将是401</span><br>        <span class="hljs-type">int</span> <span class="hljs-variable">statusCode</span> <span class="hljs-operator">=</span> response.getStatusCode();<br><br>        <span class="hljs-comment">// 断言正确的状态码已返回。</span><br>        Assert.assertEquals(statusCode <span class="hljs-comment">/*实际值*/</span>, <span class="hljs-number">401</span> <span class="hljs-comment">/*期望值*/</span>, <br>        <span class="hljs-string">&quot;返回了正确的状态码&quot;</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>运行这个测试，因为返回的状态码和预期的期望是相同的，所以测试通过。</p>
+<p>除了对状态码进行验证，我们还可以验证完整的状态行及其中包含的其他消息，”状态行” 是 HTTP 响应中返回的第一行，由三个子字符串组成：</p>
+<ol>
+<li>HTTP 协议版本。</li>
+<li>状态码。</li>
+<li>状态码的字符串值。</li>
+</ol>
+<p>例如，当请求成功时，状态行将具有值 “HTTP&#x2F;1.1 200 OK”。这里，第一部分是 HTTP 协议（HTTP&#x2F;1.1）。接下来是 HTTP 状态码（200）。第三部分是状态消息（OK）。</p>
+<p>我们可以使用响应接口的 <code>getStatusLine()</code> 方法来读取整个状态行。以下代码是一个简单的例子：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Test</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">GetBookDetails</span><span class="hljs-params">()</span> &#123;  <br>    <span class="hljs-comment">// 指定 RESTful web 服务的基本 URL </span><br>    RestAssured.baseURI = <span class="hljs-string">&quot;https://demoqa.com/BookStore/v1/Books&quot;</span>; <br>    <span class="hljs-comment">// 获取要发送到服务器的请求的 RequestSpecification </span><br>    <span class="hljs-type">RequestSpecification</span> <span class="hljs-variable">httpRequest</span> <span class="hljs-operator">=</span> RestAssured.given(); <br>    <span class="hljs-type">Response</span> <span class="hljs-variable">response</span> <span class="hljs-operator">=</span> httpRequest.get(<span class="hljs-string">&quot;&quot;</span>); <br><br>    <span class="hljs-comment">// 将响应中的状态行读取到变量 statusLine 中</span><br>    <span class="hljs-type">String</span> <span class="hljs-variable">statusLine</span> <span class="hljs-operator">=</span> response.getStatusLine();<br>    Assert.assertEquals(statusLine <span class="hljs-comment">/*实际值*/</span>, <span class="hljs-string">&quot;HTTP/1.1 200 OK&quot;</span> <br>      <span class="hljs-comment">/*期望值*/</span>, <span class="hljs-string">&quot;返回了正确的状态码&quot;</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>在这里，我们执行了类似于对状态码的测试。我们使用 <code>getStatusLine()</code> 方法读取状态行，并将其存储在字符串值中。然后，我们将此返回值与 “HTTP&#x2F;1.1 200 OK” 进行比较，以检查状态是否成功。</p>
+<p>对于header的检验大致和对于状态码的检验相同，不过header的检验更多用的是字符串相关的校验方法，此处不做详细说明。</p>
+<p><img src="/shinyruotechtips/imgs/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Rest%20Assured%E8%BF%9B%E8%A1%8CRESTful%20API%E6%B5%8B%E8%AF%95/2024-02-26-17-12-44-image.png" srcset="/shinyruotechtips/img/loading.gif" lazyload></p>
+<p>对于body的检验比较复杂，后续根据实际场景再填充内容。</p>
+<p>&#x2F;&#x2F;TODO</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/shinyruotechtips/categories/%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6/" class="category-chain-item">测试框架</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/shinyruotechtips/tags/Java/">#Java</a>
+      
+        <a href="/shinyruotechtips/tags/API-Testing/">#API Testing</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>如何使用Rest Assured进行RESTful API测试</div>
+      <div>https://douyushinyruo.github.io/shinyruotechtips/2025/12/239a32b600c1/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>DouyuShinyruo</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年12月20日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/shinyruotechtips/2025/12/a1e1acafc8b1/" title="如何配置一个DNS服务？">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">如何配置一个DNS服务？</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/shinyruotechtips/2025/12/e9b82e4f611a/" title="从Docker到OpenShift（二）">
+                        <span class="hidden-mobile">从Docker到OpenShift（二）</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#gitalk-container', function() {
+      Fluid.utils.createCssLink('/shinyruotechtips/css/gitalk.css')
+      Fluid.utils.createScript('https://lib.baomitu.com/gitalk/1.8.0/gitalk.min.js', function() {
+        var options = Object.assign(
+          {"clientID":"7289cae2463ede906cd2","clientSecret":"84d68014e41df4e4404ac497ffe3d33cf37722fd","repo":"shinyruotechtips","owner":"DouyuShinyruo","admin":"DouyuShinyruo","language":"zh-CN || en","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
+          {
+            id: 'f363b88fe8f9109feb93845a2701db7f'
+          }
+        )
+        var gitalk = new Gitalk(options);
+        gitalk.render('gitalk-container');
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/shinyruotechtips/js/events.js" ></script>
+<script  src="/shinyruotechtips/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/shinyruotechtips/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/shinyruotechtips/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/shinyruotechtips/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
